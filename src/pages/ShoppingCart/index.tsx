@@ -1,8 +1,11 @@
 import React from 'react';
+import "./styles.css";
 
 const ShoppingCart = () => {
     return (
-        <div>Shopping Cart</div>
+        <div className="shop_cart_container">
+            Shopping Cart
+        </div>
     )
 }
 

@@ -1,0 +1,18 @@
+/* .shelf-item {
+    width: 25%;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid #eee;
+
+      .shelf-item__buy-btn {
+        background-color: #eabf00;
+      }
+    }
+} */

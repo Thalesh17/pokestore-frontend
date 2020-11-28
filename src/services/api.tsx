@@ -1,4 +1,4 @@
-import { Pokemon } from '../interfaces/pokemon';
+import { Pokemon } from "../interfaces/models";
 
 const api = `https://pokeapi.co/api/v2`;
 const apiPokeType = `/type/11`;

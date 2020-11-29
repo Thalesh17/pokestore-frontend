@@ -1,9 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import Home from './pages/Home';
+import "./global.css";
+import { AuthProvider } from './contexts/usePokemon';
 
 const App: React.FC = () => {
-  return <Home />
+  return (
+    <AuthProvider>
+      <Home />
+    </AuthProvider>
+  )
 }
 
 export default App;

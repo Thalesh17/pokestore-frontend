@@ -2,12 +2,14 @@
 html {
     box-sizing: border-box;
 }
-body,input,select,textarea {
+body,input,select,textarea, button {
     font-size: 1.2rem;
-    font-family: 'Roboto';
+    font-family:  Helvetica, Arial, sans-serif;
 }
-
 body, #root {
     height: 100vh;
     margin: 0;
+}
+a {
+    text-decoration: none!important;
 }

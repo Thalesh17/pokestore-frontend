@@ -1,29 +1,27 @@
 import React from 'react';
 import { PokemonProps } from '../../interfaces/models';
 import "./styles.css";
-import { Button } from 'react-bootstrap';
 
 const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
     return (
-            <li key={String(pokemon)}>
-                <div className="pokemon_item">
-                    <a href="#">
-                        <img
-                            className="shelf-item__thumb"
-                            // src={require(`../../../../static/products/${product.sku}_1.jpg`)}
-                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-                        />
-                        <p className="shelf-item__title">Pokemon nome</p>
-                    </a>
+            <div className="pokemon_item">
+                <div className="card_image">
+                    <img
+                        className=""
+                        alt="item"
+                        src={pokemon.img}
+                    />                        
                 </div>
-                <div className="pokemon_item_price">
-                    <div className="pokemon_price_cart">
-                    <small>R$</small>
-                    <b>20,00</b>
-                    <Button variant="primary" className="button primary">Adicionar no carrinho</Button>
+                <div className="card-body">
+                    <h5 className="card-title">
+                        <a href="#" title="Pokemon Name">{pokemon.name}</a>
+                    </h5>
+                    <div className="pokemon_cart">
+                        <h5 className="pokemon_price">R$ 200,00</h5>
+                        <a href="#" className="btn btn-primary btn-sm btn-block">Comprar</a>
                     </div>
                 </div>
-            </li>
+            </div>
     )
 }
 

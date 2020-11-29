@@ -1,5 +1,5 @@
-.main {
-    display: flex;
-    flex-wrap: wrap;
+.content {
+    display: flex!important;
+    flex-wrap: wrap!important;
     /* justify-content: space-between; */
 }

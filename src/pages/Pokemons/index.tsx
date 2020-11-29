@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PokemonCart from '../../components/PokemonCart';
+import { useAuth } from '../../contexts/usePokemon';
+import { Pokemon, PokemonProps, ArrayPokemonProps } from '../../interfaces/models';
+import api from '../../services/api';
 import "./styles.css";
 
-const Pokemons = () => {
+const Pokemons: React.FC = () => {
+    const { pokemons } = useAuth();
+    const renderPokemonCart = () => {
+        return pokemons.map(item => {
+            return <li><PokemonCart pokemon={item} /></li>
+        })
+    }
+
     return (
-        <div>
-            <ul className="pokemon_items">
-                {[1,2,3,4,5,6].map(item => <PokemonCart pokemon={item} />)}
-            </ul>
+        <div className="main">
+            Products
+            <div>
+                <ul className="pokemon_items">
+                    {renderPokemonCart()}
+                </ul>
+            </div>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import "./styles.css";
 
 const ShoppingCart = () => {
     return (
-        <div className="shop_cart_container">
+        <div className="sidebar">
             Shopping Cart
         </div>
     )

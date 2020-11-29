@@ -1,0 +1,74 @@
+.pokemon_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-shadow: 3px -2px 9px 8px rgba(0,0,0,0.12)
+}
+.pokemon_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pokemon_link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pokemon_item img {
+    max-width: 37rem;
+    max-height: 37rem;
+}
+.pokemon_item_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.pokemon_item_info div,
+.pokemon_item_info button {
+    text-align: center;
+    flex: 1;
+}
+.pokemon_item_info div {
+    font-size: 2rem;
+}
+.button {
+    padding: 1rem;
+    border: 0.1rem #c0c0c0 solid;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+.button.primary {
+    background-color: #f0c040;
+}
+.button:hover {
+    border: 0.1rem #808080 
+}
+.card_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.card_image img {
+    width: 9rem;
+    height: 9rem;
+}
+.pokemon_price {
+    width: 70%;
+    margin: 0;
+    text-align: left;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+.card-title a {
+    color: #938f8f;
+    font-size: 17px;
+}
+.pokemon_cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

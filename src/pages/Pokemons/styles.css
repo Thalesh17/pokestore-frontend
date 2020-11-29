@@ -1,3 +1,17 @@
-.content {
-  flex: 3 60rem
+.main {
+  flex: 3 49rem;
+}
+.pokemon_items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.pokemon_items li {
+  flex: 1 1 15rem;
+  height: 21rem;
+  padding: 1rem;
 }

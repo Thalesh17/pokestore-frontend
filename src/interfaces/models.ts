@@ -13,7 +13,15 @@ export interface Config {
 }
 
 export interface Cart {
+    cartItems: CartItem[];
+}
 
+export interface CartItem {
+    id: string;
+    name: string;
+    img: string;
+    price: string;
+    count: number;
 }
 
 export interface ContextPokemon {
@@ -26,9 +34,9 @@ export interface ContextPokemon {
 }
 
 export interface ShoppingCart {
-    handleAdd(): Promise<void>;
+    cartItems: CartItem[],
+    handleAdd(pokemon: Pokemon): void;
     handleRemove(id: string): void;
-
 }
 
 export interface PokemonProps {

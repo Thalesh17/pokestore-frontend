@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Spinner } from 'react-bootstrap';
+import { useCart } from '../../contexts/shoppingCart';
 import { usePokemons } from '../../contexts/usePokemon';
 import { Pokemon, PokemonProps } from '../../interfaces/models';
 import api from '../../services/api';
@@ -8,6 +9,7 @@ import "./styles.css";
 
 const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
     const { config } = usePokemons();
+    const { handleAdd, handleRemove } = useCart();
     const [ pokemonData, setPokemonData ] = useState<Pokemon | null>(null);
 
     useEffect(() => {
@@ -37,7 +39,10 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
                         <div className="pokemon_cart">
                             <h5 className="pokemon_price">
                             { pokemonData.price && numberFormatBRL(parseFloat(pokemonData.price))}</h5>
-                            <a href="#" className={`btn btn-${config.color} btn-sm btn-block`}>Comprar</a>
+                            <button 
+                                onClick={() => handleAdd(pokemonData)}
+                                className={`btn btn-${config.color} btn-sm btn-block`}>Comprar
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -34,7 +34,6 @@ const PokemonProvider: React.FC = ({children}) => {
 
   const findPokemons = async (): Promise<PokemonUrl[]> => {
     let pokemons = await api.getPokemonsByType(config.type);
-    // localStorage.setItem('@PokeStore:pokemons', JSON.stringify(pokemons));
     setPokemons(pokemons);
     return pokemons;
   }
@@ -44,13 +43,12 @@ const PokemonProvider: React.FC = ({children}) => {
   }
 
   const handleSaveConfig = async(values: Config): Promise<void> => {
-    // localStorage.removeItem('@PokeStore:pokemons')
-    setRefreshData(true);
+    localStorage.setItem('@PokeStore:config', JSON.stringify(values));
     setConfig(values);
+    setRefreshData(true);
     setPokemons([]);
     setPokemons( await api.getPokemonsByType(values.type));
 
-    localStorage.setItem('@PokeStore:config', JSON.stringify(values));
   }
 
   const getConfigs = (): Config[] => {

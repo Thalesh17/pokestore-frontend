@@ -1,3 +1,13 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,100&display=swap');
+html {
+    box-sizing: border-box;
+}
+body,input,select,textarea {
+    font-size: 1.2rem;
+    font-family: 'Roboto';
+}
+
+body, #root {
     height: 100vh;
+    margin: 0;
 }

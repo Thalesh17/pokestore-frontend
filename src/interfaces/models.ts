@@ -34,9 +34,11 @@ export interface ShoppingCart {
 export interface PokemonProps {
     pokemon: PokemonUrl;
 }
+
 export interface ArrayPokemonProps {
     pokemons: Pokemon[]
 }
+
 export interface PokemonUrl {
     id: string;
     name: string;
@@ -45,4 +47,9 @@ export interface PokemonUrl {
 
 export interface PokemonType {
     pokemon: PokemonUrl;
+}
+
+export interface FilterPokemonsProps {
+    handleFilter(value: string): void;
+    countResult: number;
 }

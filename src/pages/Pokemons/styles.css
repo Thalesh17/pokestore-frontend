@@ -4,14 +4,12 @@
 .pokemon_items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 .pokemon_items li {
-  flex: 1 1 15rem;
+  flex: 0 1 16rem;
   height: 20rem;
   padding: 1rem;
 }

@@ -1,7 +1,6 @@
-.link_navbar {
+.nav-link {
     font-size: 18px;
-    font-family: Roboto;
-    color: #fff;
+    color: #fff!important;
 }
 .justify_select {
     display: flex;

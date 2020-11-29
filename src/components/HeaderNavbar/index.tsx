@@ -26,7 +26,8 @@ const HeaderNavbar: React.FC = () => {
               />
             </Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link className="link_navbar" href="#home">Home</Nav.Link>
+              <Nav.Link className="link_navbar" href="#home">Compras</Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">
               <div className="justify_select">

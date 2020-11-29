@@ -13,7 +13,7 @@ const Home: React.FC = () => {
             <HeaderNavbar />
             <Container>
                 <div className="content">
-                    <Pokemons/>
+                    <Pokemons />
                     <ShoppingCart />
                 </div>
             </Container>

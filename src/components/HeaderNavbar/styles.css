@@ -1,0 +1,19 @@
+.link_navbar {
+    font-size: 18px;
+    font-family: Roboto;
+    color: #fff;
+}
+.justify_select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.justify_select .text_select {
+    margin-right: 1rem;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+.justify_select select {
+    width: 10rem;
+}

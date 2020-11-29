@@ -1,33 +1,46 @@
-import { Pokemon, PokemonTypeUrl } from "../interfaces/models";
+/* eslint-disable import/no-anonymous-default-export */
+import React from 'react';
+import { Pokemon, PokemonUrl } from "../interfaces/models";
+import axios from "axios";
+import { randomNumber, capitalize } from "../utils/utils";
+import { usePokemons } from "../contexts/usePokemon";
 
-const api = `https://pokeapi.co/api/v2`;
-const apiPokeType = `type/11`;
+const api = axios.create();
 
-const fetchApi = async (endpoint: string) => {
-    const req = await fetch(endpoint);
-    const json = req.json();
-    
-    return json;
-}
+const url = `https://pokeapi.co/api/v2`;
+const config: any = localStorage.getItem('@PokeStore:config');
 
 export default {
+    async getPokemonsByType(type: string) : Promise<PokemonUrl[] | []> {
+        let pokemons: PokemonUrl[] = [];
+        console.log(`${url}/type/${type}`);
 
-    async getPokemonsByType() : Promise<Pokemon[]> {
-        let fetchPokemons: PokemonTypeUrl = await fetchApi(`${api}/${apiPokeType}`);
-        var pokemons: Pokemon[] = [];
-        
-        fetchPokemons.pokemon.forEach(async pokemonUrl => {
-            let result = await fetchApi(pokemonUrl.pokemon.url);
-            
-            pokemons.push({id: result.id, name: capitalize(result.name), img: result.sprites.other.dream_world.front_default})
-        });
-        console.log('oi',pokemons)
+        await api.get(`${url}/type/${type}`).then(response => {
+            response.data.pokemon.forEach((poke: any) => {
+                pokemons.push({
+                    id: poke.id,
+                    name: capitalize(poke.pokemon.name),
+                    url: poke.pokemon.url,
+                });
+            })
+        })
 
         return pokemons;
     },
+    async getPokemonByUrl(url: string): Promise<Pokemon> {
+        var pokemon: Pokemon = {id: '',name: '',img: '',price: ''};
+
+        await api.get(url).then(response => {
+            pokemon = {
+                id: response.data.id, 
+                name: capitalize(response.data.name), 
+                img: response.data.sprites.other.dream_world.front_default,
+                price: randomNumber()
+            }
+        });
+
+        return pokemon;
+    }
 
 
-}
-const capitalize = (s: string): string => {
-    return s.charAt(0).toUpperCase() + s.slice(1)
 }

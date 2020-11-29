@@ -12,6 +12,6 @@
 }
 .pokemon_items li {
   flex: 1 1 15rem;
-  height: 21rem;
+  height: 20rem;
   padding: 1rem;
 }

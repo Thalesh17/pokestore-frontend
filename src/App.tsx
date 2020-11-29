@@ -1,13 +1,13 @@
 import React from 'react';
 import Home from './pages/Home';
 import "./global.css";
-import { AuthProvider } from './contexts/usePokemon';
+import { PokemonProvider } from './contexts/usePokemon';
 
 const App: React.FC = () => {
   return (
-    <AuthProvider>
+    <PokemonProvider>
       <Home />
-    </AuthProvider>
+    </PokemonProvider>
   )
 }
 

@@ -8,6 +8,7 @@ import { numberFormatBRL } from '../../utils/utils';
 import "./styles.css";
 
 const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
+    const Fade = require('react-reveal/Fade');
     const { config } = usePokemons();
     const { handleAdd, handleRemove } = useCart();
     const [ pokemonData, setPokemonData ] = useState<Pokemon | null>(null);
@@ -25,6 +26,7 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
         <>
             {!pokemonData && <Spinner className="spinner-load" animation="border" variant="primary" />}
             {pokemonData && (
+                <Fade bottom cascade>
                 <div className="pokemon_item">
                     <div className="card_image">
                         <img
@@ -46,6 +48,7 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
                         </div>
                     </div>
                 </div>
+                </Fade>
             )}
         </>
     )

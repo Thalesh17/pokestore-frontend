@@ -19,7 +19,6 @@ const Pokemons: React.FC = () => {
 
     const handleFilter = (value: string): void => {
         setPokemonsFilters(pokemons.filter(pokemon => pokemon.name.toLocaleLowerCase().includes(value.toLocaleLowerCase())));
-        console.log(pokemons.filter(pokemon => pokemon.name.toLocaleLowerCase().includes(value.toLocaleLowerCase())));
     }
 
     return (

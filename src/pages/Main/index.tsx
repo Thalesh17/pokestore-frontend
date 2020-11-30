@@ -7,18 +7,17 @@ import Pokemons from '../Pokemons';
 import ShoppingCart from '../ShoppingCart';
 import "./styles.css";
 
-const Home: React.FC = () => {
+const Main: React.FC = () => {
     return (
         <>
             <HeaderNavbar />
             <Container>
                 <div className="content">
-                    <Pokemons />
-                    <ShoppingCart />
+                   <h1>Tela Inicial</h1>
                 </div>
             </Container>
         </>
     )
 }
 
-export default Home;
+export default Main;

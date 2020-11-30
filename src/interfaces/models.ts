@@ -35,9 +35,17 @@ export interface ContextPokemon {
 
 export interface ShoppingCart {
     cartItems: CartItem[],
+    shoppings: Shopping[],
     handleAdd(pokemon: Pokemon): void;
     handleRemove(id: string): void;
     handleRemoveAllItems(): void;
+    handleSaveShopping(): void;
+}
+
+export interface Shopping {
+    name: string;
+    items: CartItem[];
+    createDate: Date;
 }
 
 export interface PokemonProps {

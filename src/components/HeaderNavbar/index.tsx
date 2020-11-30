@@ -14,7 +14,6 @@ const HeaderNavbar: React.FC = () => {
   }, [])
 
   const renderConfigs = () => {
-    console.log(selected)
     return getConfigs().map(config => <option key={config.type} value={JSON.stringify(config)}>{config.name}</option>)
   }
 

@@ -1,31 +1,32 @@
 import React, {createContext, useEffect, useState, useContext} from 'react';
 import { Config, ContextPokemon, PokemonUrl } from '../interfaces/models';
 import api from '../services/api';
+import { useCart } from './shoppingCart';
 
 const PokemonContext = createContext<ContextPokemon>({} as ContextPokemon);
 
 const PokemonProvider: React.FC = ({children}) => {
+  const { handleRemoveAllItems } = useCart();
 
   const [ pokemons, setPokemons ] = useState<PokemonUrl[] | []>([]);
+  const [ refreshData, setRefreshData] = useState<boolean>(false);
   const [ config, setConfig ] = useState<Config>({ 
     color: 'primary', 
     type: '11', 
     name: 'Water',
     value: 'water'
   });
-  const [ refreshData, setRefreshData] = useState<boolean>(false);
+
   useEffect(() => { 
     const getPokemonsByType = async() => {
       setPokemons([]);
-      let pokeStorage = localStorage.getItem('@PokeStore:pokemons'),
-          configStore = localStorage.getItem('@PokeStore:config');
+      let configStore = localStorage.getItem('@PokeStore:config');
 
       if(configStore) {
         setConfig(JSON.parse(configStore));
       }else{
         setConfigDefault();
       }
-      // setPokemons(!pokeStorage ? await findPokemons() : await JSON.parse(pokeStorage));
       await findPokemons();
     }
 
@@ -47,8 +48,8 @@ const PokemonProvider: React.FC = ({children}) => {
     setConfig(values);
     setRefreshData(true);
     setPokemons([]);
-    setPokemons( await api.getPokemonsByType(values.type));
-
+    handleRemoveAllItems();
+    setPokemons(await api.getPokemonsByType(values.type));
   }
 
   const getConfigs = (): Config[] => {

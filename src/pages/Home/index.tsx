@@ -17,6 +17,7 @@ const Home: React.FC = () => {
                     <ShoppingCart />
                 </div>
             </Container>
+            <footer>Feito por Thales Henrique</footer>
         </>
     )
 }

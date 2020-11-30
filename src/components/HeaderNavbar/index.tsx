@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Nav, Navbar, Form } from 'react-bootstrap';
 import logoImg from '../../assets/pokemon_logo.svg';
 import { usePokemons } from '../../contexts/usePokemon';
 import "./styles.css";
 
 const HeaderNavbar: React.FC = () => {
-  const { config, getConfigs, getConfig, handleSaveConfig}= usePokemons();
-  const [ selected, setSelected ] = useState<string>(JSON.stringify(config));
+  const { config, getConfigs, getConfig, handleSaveConfig} = usePokemons();
+  const [ selected, setSelected ] = useState<string>('');
+
+  useEffect(() => {
+    let configStorage = localStorage.getItem('@PokeStore:config');
+    setSelected(configStorage ? configStorage : JSON.stringify(config));
+  }, [])
 
   const renderConfigs = () => {
+    console.log(selected)
     return getConfigs().map(config => <option key={config.type} value={JSON.stringify(config)}>{config.name}</option>)
   }
 
   return (
     <>
-       <Navbar bg={getConfig().color} variant="dark">
+       <Navbar className="fixed_nav" bg={getConfig().color} variant="dark">
          <Container>
           <Navbar.Brand href="#home">
               <img 
@@ -40,7 +46,7 @@ const HeaderNavbar: React.FC = () => {
                     handleSaveConfig(JSON.parse(e.target.value));
                     setSelected(e.target.value)
                   }}
-                  value={config && selected}
+                  value={selected}
                   as="select">
                   {renderConfigs()}
                 </Form.Control>

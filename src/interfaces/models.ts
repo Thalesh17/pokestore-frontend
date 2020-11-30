@@ -37,14 +37,11 @@ export interface ShoppingCart {
     cartItems: CartItem[],
     handleAdd(pokemon: Pokemon): void;
     handleRemove(id: string): void;
+    handleRemoveAllItems(): void;
 }
 
 export interface PokemonProps {
     pokemon: PokemonUrl;
-}
-
-export interface ArrayPokemonProps {
-    pokemons: Pokemon[]
 }
 
 export interface PokemonUrl {

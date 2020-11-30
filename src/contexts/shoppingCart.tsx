@@ -6,9 +6,8 @@ const ShoppingCartContext = createContext<ShoppingCart>({} as ShoppingCart);
 
 const ShoppingCartProvider: React.FC = ({children}) => {
 
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [total, setTotal] = useState<string>();
-  const [config, setConfig] = useState<Config>();
+  const [cartItems, setCartItems] = useState<CartItem[]>(
+    localStorage.getItem("@PokeStore:cart") !== null ? JSON.parse(localStorage.getItem("@PokeStore:cart")!) : []);
 
   const handleAdd = (pokemon: Pokemon): void => {
     const carts: CartItem[] = cartItems.slice();
@@ -24,18 +23,25 @@ const ShoppingCartProvider: React.FC = ({children}) => {
       carts.push({...pokemon, count: 1});
     }
     setCartItems(carts);
+    localStorage.setItem("@PokeStore:cart", JSON.stringify(carts));
   }
   
   const handleRemove = (id: string): void => {
-    const carts: CartItem[] = cartItems.slice();
-    setCartItems(carts.filter(cart => cart.id !== id));
+    const carts: CartItem[] = cartItems.slice().filter(cart => cart.id !== id);
+    setCartItems(carts);
+    localStorage.setItem("@PokeStore:cart", JSON.stringify(carts));
+  }
+  const handleRemoveAllItems = (): void => {
+    setCartItems([]);
+    localStorage.removeItem("@PokeStore:cart");
   }
 
   return (
     <ShoppingCartContext.Provider value={{
       cartItems,
       handleAdd, 
-      handleRemove
+      handleRemove,
+      handleRemoveAllItems
     }}>
       {children}
     </ShoppingCartContext.Provider>

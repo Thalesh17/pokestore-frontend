@@ -6,11 +6,11 @@ import { ShoppingCartProvider } from './contexts/shoppingCart';
 
 const App: React.FC = () => {
   return (
-    <PokemonProvider>
-      <ShoppingCartProvider>
-      <Home />
-      </ShoppingCartProvider>
-    </PokemonProvider>
+    <ShoppingCartProvider>
+        <PokemonProvider>
+          <Home />
+        </PokemonProvider>
+    </ShoppingCartProvider>
   )
 }
 

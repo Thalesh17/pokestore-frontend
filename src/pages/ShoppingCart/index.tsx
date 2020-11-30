@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { Button } from 'react-bootstrap';
 import { useCart } from '../../contexts/shoppingCart';
+import { usePokemons } from '../../contexts/usePokemon';
 import { CartItem } from '../../interfaces/models';
 import { numberFormatBRL } from '../../utils/utils';
 import "./styles.css";
 
 const ShoppingCart: React.FC = () => {
-    const { cartItems, handleRemove } = useCart(); 
+    const { cartItems, handleRemove } = useCart();
+    const { config } = usePokemons();
     const [ cartItemsData, setCartItemsData] = useState<CartItem[]>([]);
 
     useEffect(() => {
-        console.log(cartItems);
         setCartItemsData(cartItems);
     }, [cartItems])
 
@@ -46,7 +47,7 @@ const ShoppingCart: React.FC = () => {
                             Total: {" "}
                             {numberFormatBRL(cartItems.reduce((a,c) => a + (parseFloat(c.price) * c.count), 0))}
                         </div>
-                        <Button>Finalizar</Button>
+                        <Button variant={`${config.color}`}>Finalizar</Button>
                     </div>
                 </div>
             )}

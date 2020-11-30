@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Table } from 'react-bootstrap';
-import HeaderNavbar from '../../components/HeaderNavbar';
+import { Container, Table, Content } from "../../styles/components/components";
 import { useCart } from '../../contexts/shoppingCart';
+import Header from '../../components/Header';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import "./styles.css";
@@ -10,11 +10,11 @@ const Shopping: React.FC = () => {
     const { shoppings } = useCart();
     return (
         <>
-            <HeaderNavbar />
+            <Header />
             <Container>
-                <div className="content">
+                <Content>
                     <h3 className="align-title">🛒 Compras</h3>
-                    <Table striped bordered hover size="sm">
+                    <Table>
                         <thead>
                             <tr>
                                 <th>Comprador</th>
@@ -26,13 +26,13 @@ const Shopping: React.FC = () => {
                             {shoppings.map(shop => (
                                 <tr>
                                     <td>{shop.name}</td>
-                                    <td>{shop.items.map(r=> r.name).join(', ')}</td>
+                                    <td>{shop.items.map(r => r.name).join(', ')}</td>
                                     <td>{moment(String(shop.createDate).split('T')[0]).format('L')}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </Table>
-                </div>
+                </Content>
             </Container>
         </>
     )

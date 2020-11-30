@@ -1,5 +1,12 @@
 .content {
-    display: flex!important;
-    flex-wrap: wrap!important;
+    display: grid;
     margin-top: 5rem;
+    grid-template-columns: 3fr 1fr;
+    justify-content: center;
+    justify-items: center;
+}
+@media screen and (max-width: 800px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
 }

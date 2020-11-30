@@ -1,5 +1,8 @@
 .main {
-  flex: 3 49rem;
+  /* flex: 3 1 45rem; */
+  height: auto;
+  display: block;
+  width: 100%;
 }
 .pokemon_items {
   display: flex;
@@ -7,6 +10,7 @@
   padding: 0;
   margin: 0;
   list-style-type: none;
+  justify-content: space-between;
 }
 .pokemon_items li {
   flex: 0 1 16rem;

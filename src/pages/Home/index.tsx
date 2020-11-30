@@ -3,9 +3,7 @@ import { usePokemons } from '../../contexts/usePokemon';
 import { Config } from '../../interfaces/models';
 import "./styles.css";
 import { RouteComponentProps } from 'react-router-dom';
-interface ChildComponentProps extends RouteComponentProps<any> {
-  /* other props for ChildComponent */
-}
+interface ChildComponentProps extends RouteComponentProps<any> {}
 const Home:  React.FC<ChildComponentProps> = ({ history })  => {
     const { handleSaveConfig } = usePokemons();
     let fire: Config = {color: 'danger',name:'Fogo',value:'fire',type:'10'},

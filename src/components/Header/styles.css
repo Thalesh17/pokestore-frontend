@@ -1,10 +1,11 @@
+/* 
 .fixed_nav {
     position: fixed!important;
     z-index: 999!important;
     top: 0;
     left: 0;
     right: 0;
-}
+} */
 .nav-link {
     font-size: 18px;
     color: #fff!important;
@@ -21,7 +22,7 @@
     color: #fff;
 }
 .justify_select select {
-    width: 10rem;
+    width: 8rem;
 }
 .hide-padding {
     padding: 0!important;

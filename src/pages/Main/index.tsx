@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import { Container } from 'react-bootstrap';
-import HeaderNavbar from '../../components/HeaderNavbar';
 import Pokemons from '../Pokemons';
 import ShoppingCart from '../ShoppingCart';
 import "./styles.css";
+import Header from '../../components/Header';
+import { Container } from '../../styles/components/components';
 
 const Main: React.FC = () => {
     return (
         <>
-            <HeaderNavbar />
-            <Container>
+            <Header />
+             <Container>
                 <div className="content">
                     <Pokemons />
                     <ShoppingCart />

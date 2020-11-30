@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { Spinner } from 'react-bootstrap';
 import { useCart } from '../../contexts/shoppingCart';
 import { usePokemons } from '../../contexts/usePokemon';
 import { Pokemon, PokemonProps } from '../../interfaces/models';
-import api from '../../services/api';
 import { numberFormatBRL } from '../../utils/utils';
+import { Button } from '../../styles/components/components';
+import api from '../../services/api';
 import "./styles.css";
 
 const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
@@ -24,7 +24,7 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
 
     return (
         <>
-            {!pokemonData && <Spinner className="spinner-load" animation="border" variant="primary" />}
+            {/* {!pokemonData && <Spinner className="spinner-load" animation="border" variant="primary" />} */}
             {pokemonData && (
                 <Fade bottom cascade>
                 <div className="pokemon_item">
@@ -41,10 +41,10 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
                         <div className="pokemon_cart">
                             <h5 className="pokemon_price">
                             { pokemonData.price && numberFormatBRL(parseFloat(pokemonData.price))}</h5>
-                            <button 
+                            <Button 
                                 onClick={() => handleAdd(pokemonData)}
-                                className={`btn btn-${config.color} btn-sm btn-block`}>Comprar
-                            </button>
+                                className={`${config.color}`}>Comprar
+                            </Button>
                         </div>
                     </div>
                 </div>

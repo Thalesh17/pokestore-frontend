@@ -7,7 +7,7 @@ import Shopping from '../../pages/Shopping';
 const Routes: React.FC = () => {
  return (
    <BrowserRouter>
-     <Route exact path="/" component={Home} />
+     <Route exact path="/" component={Main} />
      <Route exact path="/main" component={Main} />
      <Route exact path="/shoppings" component={Shopping} />
    </BrowserRouter>

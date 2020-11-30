@@ -40,7 +40,7 @@ const PokemonProvider: React.FC = ({children}) => {
   }
 
   const setConfigDefault = (): void => {
-    handleSaveConfig({color: 'primary', name: 'Água',type: '11',value:'11'})
+    handleSaveConfig({color: 'type-water', name: 'Água',type: '11',value:'11'})
   }
 
   const handleSaveConfig = async(values: Config): Promise<void> => {
@@ -55,10 +55,10 @@ const PokemonProvider: React.FC = ({children}) => {
   const getConfigs = (): Config[] => {
     return [
       {
-        color: 'primary',name:'Água',value:'water',type:'11'
+        color: 'type-water', name:'Água',value:'water',type:'11'
       },
       {
-        color: 'danger',name:'Fogo',value:'fire',type:'10'
+        color: 'type-fire',name:'Fogo',value:'fire',type:'10'
       }
     ];
   }

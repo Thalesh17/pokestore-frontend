@@ -1,23 +1,38 @@
-import React, {useState, useEffect} from 'react';
-import { Container } from 'react-bootstrap';
-import HeaderNavbar from '../../components/HeaderNavbar';
-import { Pokemon } from '../../interfaces/models';
-import api from '../../services/api';
-import Pokemons from '../Pokemons';
-import ShoppingCart from '../ShoppingCart';
+import React from 'react';
+import { usePokemons } from '../../contexts/usePokemon';
+import { Config } from '../../interfaces/models';
 import "./styles.css";
+import { RouteComponentProps } from 'react-router-dom';
+interface ChildComponentProps extends RouteComponentProps<any> {
+  /* other props for ChildComponent */
+}
+const Home:  React.FC<ChildComponentProps> = ({ history })  => {
+    const { handleSaveConfig } = usePokemons();
+    let fire: Config = {color: 'danger',name:'Fogo',value:'fire',type:'10'},
+        water: Config = {color: 'primary',name:'Água',value:'water',type:'11'};
 
-const Home: React.FC = () => {
+    const redirectByType = (value: Config): void => {
+        handleSaveConfig(value);
+        history.push('/main');
+    }
+
     return (
-        <>
-            <HeaderNavbar />
-            <Container>
-                <div className="content">
-                    <Pokemons />
-                    <ShoppingCart />
+        <div className="main-home">
+            <h1>PokeStore</h1>
+            <div className="home-content">
+                <h1>Bem vindos a PokeStore</h1>
+                <p className="text-content">Projeto desenvolvido por Thales Henrique do desafio de Front end Pleno da B2W Digital</p>
+                <h4>Escolha qual tipo de Pokemon você quer espiar!</h4>
+            </div>
+            <div className="home">
+                <div onClick={() => redirectByType(water)} className="home-content home-content-blue">
+                    <h1>ÁGUA</h1>
                 </div>
-            </Container>
-        </>
+                <div onClick={() => redirectByType(fire)} className="home-content home-content-red">
+                    <h1>FOGO</h1>
+                </div>
+            </div>
+        </div>
     )
 }
 

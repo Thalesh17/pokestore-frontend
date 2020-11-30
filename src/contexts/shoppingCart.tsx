@@ -71,6 +71,7 @@ const ShoppingCartProvider: React.FC = ({ children }) => {
           text: 'Confira na sua aba Compras.',
           timer: 2000
         });
+        handleRemoveAllItems();
       }).catch(err => { });
   }
 

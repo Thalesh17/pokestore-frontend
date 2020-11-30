@@ -1,5 +1,60 @@
-.content {
-    display: flex!important;
-    flex-wrap: wrap!important;
-    margin-top: 5rem;
+.main-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: url('../../assets/background2.jpg');
+    background-position: 50%;
+    background-size: cover;
+}
+.home {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+.text-content {
+    font-size: 14px;
+    font-family: 'Roboto';
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    background: hsla(0,0%,100%,.9);
+    border-radius: 10px;
+    width: 45%;
+    height: 50%;
+    text-align: center;
+    justify-content: center;
+}
+.home-content-red {
+    background: hsl(0deg 100% 70% / 90%);
+    height: 60%;
+    cursor: pointer;
+    transform: scale(0.9);
+    transition: all ease 0.5s;
+}
+.home-content-red:hover {
+    transform: scale(1);
+}
+.home-content-blue {
+    background: hsl(222deg 100% 70% / 90%);
+    height: 60%; 
+    cursor: pointer;
+    transform: scale(0.9);
+    transition: all ease 0.5s;
+}
+.home-content-blue h1 {
+    font-weight: 700;
+    color: #fff;
+}
+.home-content-red h1 {
+    font-weight: 700;
+    color: #fff;
+}
+.home-content-blue:hover {
+    transform: scale(1);
 }

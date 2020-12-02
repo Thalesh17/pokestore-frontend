@@ -1,19 +1,15 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
-import { Pokemon, PokemonUrl, MovesUrl, TypesUrl } from "../interfaces/models";
+import { Pokemon, PokemonUrl } from "../interfaces/models";
 import axios from "axios";
 import { randomNumber, capitalize } from "../utils/utils";
-import { usePokemons } from "../contexts/usePokemon";
-
 const api = axios.create();
 
 const url = `https://pokeapi.co/api/v2`;
-const config: any = localStorage.getItem('@PokeStore:config');
 
 export default {
     async getPokemonsByType(type: string) : Promise<PokemonUrl[] | []> {
         let pokemons: PokemonUrl[] = [];
-        console.log(`${url}/type/${type}`);
 
         await api.get(`${url}/type/${type}`).then(response => {
             response.data.pokemon.forEach((poke: any) => {

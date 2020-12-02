@@ -45,13 +45,15 @@ const Header: React.FC = () => {
 
   return (
     <header className={`${getConfig().color} Header`}>
-      <img
-        width={150}
-        height={50}
-        className="d-inline-block align-top"
-        alt="Pokemon logo"
-        src={logoImg}
-      />
+      <Link to='/main' className="nav-link link_navbar">
+        <img
+          width={150}
+          height={50}
+          className="d-inline-block align-top"
+          alt="Pokemon logo"
+          src={logoImg}
+        />
+      </Link>
       <CSSTransition
         in={!isSmallScreen || isNavVisible}
         timeout={350}
@@ -59,7 +61,7 @@ const Header: React.FC = () => {
         unmountOnExit
       >
         <nav className={`nav ${getConfig().color}`}>
-          <Link to='/main' className="nav-link link_navbar">Home</Link>
+          <Link to='/' className="nav-link link_navbar">Home</Link>
           <Link to='/shoppings' className="nav-link link_navbar">Pedidos</Link>
           <div className="justify_select">
             <div className="text_select">

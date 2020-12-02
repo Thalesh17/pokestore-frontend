@@ -1,29 +1,120 @@
-/* 
-.fixed_nav {
-    position: fixed!important;
-    z-index: 999!important;
-    top: 0;
-    left: 0;
-    right: 0;
-} */
-.nav-link {
-    font-size: 18px;
-    color: #fff!important;
+.Header {
+  position: fixed;
+  top: 0; 
+  height: 4rem;
+  display: grid;
+  z-index: 999;
+  max-height: 4rem;
+  width: 100vw;
+  display: grid;
+  grid-template-areas: "logo nav";
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.Logo {
+  grid-area: logo;
+  height: 70px;
+}
+.nav {
+  display: grid;
+  grid-area: nav;
+  grid-template-columns: repeat(4, auto);
+  align-items: center;
+  justify-items: center;
+}
+.nav a {
+  color: #fff;
+  font-size: 20px!important;
+  font-weight: 500!important;
+  transition: 0.5s;
+  text-decoration: none;
+}
+.nav a:hover {
+  transform: scale(1.1);
+}
+.nav button {
+  padding: 10px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  background-color: rgba(255, 0, 0, 0.5);
+  box-shadow: 0px 5px 0px 0px rgba(255, 0, 0, 0.25);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 70ms;
+}
+.nav button:active {
+  transform: translateY(3px);
+  box-shadow: 0px 2px 0px 0px rgba(255, 0, 0, 0.25);
+}
+.pokeball {
+  display: none;
+  grid-area: burger;
+  align-self: end;
+  justify-self: end;
+  font-size: 40px;
+  border: none;
+  background: none;
+  outline: none;
+  transition: 0.1s;
+}
+.pokeball:active {
+  transform: scale(1.2);
 }
 .justify_select {
     display: flex;
-    justify-content: center;
+    width: 100%;
+}
+.text_select {
+    display: flex;
+    width: 67%;
     align-items: center;
-}
-.justify_select .text_select {
-    margin-right: 1rem;
-    font-size: 16px;
-    font-weight: 500;
     color: #fff;
+    font-size: 20px!important;
+    font-weight: 500!important;
+    transition: 0.5s;
 }
-.justify_select select {
-    width: 8rem;
+
+@media (max-width: 700px) {
+  .Header {
+    grid-template-areas: "logo burger" "nav nav";
+  }
+  .nav {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: none;
+    grid-row-gap: 20px;
+
+    padding: 30px 0 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .pokeball {
+    display: inline;
+  }
+  .justify_select {
+    flex-direction: column;
+    width: 31%;
+    max-width: 8rem;
+    min-width: 10rem;
+    justify-content: center;
+  }
 }
-.hide-padding {
-    padding: 0!important;
+.navAnimation-enter {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.navAnimation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 350ms, transform 350ms;
+}
+.navAnimation-exit {
+  opacity: 1;
+}
+.navAnimation-exit-active {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 350ms, transform 350ms;
 }

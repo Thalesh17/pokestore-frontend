@@ -1,9 +1,9 @@
 .pokemon_item {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 85%;
-    cursor: pointer;
+    justify-content: space-around;
+    height: 100%;
+    padding: 1rem;
     transform: scale(0.9);
     transition: all ease 0.5s;
 }
@@ -55,6 +55,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
+    border-radius: 8px;
 }
 .card_image img {
     width: 9rem;
@@ -62,21 +63,50 @@
 }
 .pokemon_price {
     width: 70%;
-    margin: 0;
-    text-align: left;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    font-size: 14px;
+    margin-left: 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
 }
-.card-title a {
-    color: #938f8f;
-    font-size: 17px;
+.card-title {
+    font-size: 18px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .pokemon_cart {
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.pokemon_cart:hover {
+    opacity: 0.8
+}
+
+.pokemon_cart h5 {
+    font-size: 16px;
+    color: #fff;
+}
+.btn-transparent {
+    background: transparent;
 }
 .spinner-load{
     margin: 4rem;
+}
+.justify-title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+.justify-title-price h5{
+    font-size: 16px;
+}
+.content-button {
+    display: flex;
+    justify-content: space-between;
 }

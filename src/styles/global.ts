@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
+
 export default createGlobalStyle`
 
 :root {
-  --type-water: #0077b6;
-  --type-fire: #e63946;
+  --type-water: #3a86ff;
+  --type-fire: #f94144;
+  --text-black: #110B11;
 }
 
 *{
@@ -15,7 +17,7 @@ body {
     background: #f5f5f5;
     font-size: 14px;
     color: 14px;
-    font-family: sans-serif;
+    font-family: 'Roboto';
 }
 
 .type-water {
@@ -23,6 +25,9 @@ body {
 }
 .type-fire {
   background-color: var(--type-fire);
+}
+.text-black {
+  color: var(--text-black);
 }
 th, td {
   text-align: left;
@@ -34,11 +39,12 @@ tr:nth-child(even) {
 }
 input[type=text], select, textarea{
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  font-size: 14px;
 }
 label {
   padding: 12px 12px 12px 0;

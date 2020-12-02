@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
-import { Pokemon, PokemonUrl } from "../interfaces/models";
+import { Pokemon, PokemonUrl, MovesUrl, TypesUrl } from "../interfaces/models";
 import axios from "axios";
 import { randomNumber, capitalize } from "../utils/utils";
 import { usePokemons } from "../contexts/usePokemon";
@@ -28,16 +28,24 @@ export default {
         return pokemons;
     },
     async getPokemonByUrl(url: string): Promise<Pokemon> {
-        var pokemon: Pokemon = {id: '',name: '',img: '',price: ''};
+        var pokemon: Pokemon = {id: '',name: '',img: '',price: '', types: [], height: '', moves: []};
 
         await api.get(url).then(response => {
             pokemon = {
                 id: response.data.id, 
                 name: capitalize(response.data.name), 
                 img: response.data.sprites.other.dream_world.front_default,
-                price: randomNumber()
+                price: randomNumber(),
+                height: response.data.height,
+                moves: response.data.moves.slice(0, 3).map((r: any) => {
+                    return { name: r.move.name, url: r.move.url
+                }}),
+                types: response.data.types.slice(0, 3).map((r: any) => {
+                    return { name: r.type.name, url: r.type.url
+                }})
             }
         });
+        console.log(pokemon)
 
         return pokemon;
     }

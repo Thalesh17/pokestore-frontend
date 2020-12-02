@@ -2,3 +2,20 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.flex-items {
+    display: flex;
+}
+.justify-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1rem;
+}
+.pokemon-name {
+    font-size: 14px;
+    font-family: monospace;
+}
+.strong-id {
+    font-weight: 600;
+    font-size: 18px;
+}

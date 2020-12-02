@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,100&display=swap');
 html {
     box-sizing: border-box;
+    font-family: 'Roboto';
 }
 body,input,select,textarea, button {
     font-size: 1.2rem;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../../contexts/shoppingCart';
 import { usePokemons } from '../../contexts/usePokemon';
-import { CartItem } from '../../interfaces/models';
+import { CartItem, Pokemon } from '../../interfaces/models';
 import { numberFormatBRL } from '../../utils/utils';
 import { Button } from '../../styles/components/components';
 import "./styles.css";
@@ -9,8 +9,8 @@ import "./styles.css";
 const ShoppingCart: React.FC = () => {
     const Fade = require('react-reveal/Fade');
     const { cartItems, handleRemove, handleSaveShopping } = useCart();
-    const [cartItemsData, setCartItemsData] = useState<CartItem[]>([]);
-    const [open, setOpen] = useState(false);
+    const [ cartItemsData, setCartItemsData ] = useState<CartItem[]>([]);
+    const [ open, setOpen ] = useState(false);
     const { getConfig } = usePokemons();
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const ShoppingCart: React.FC = () => {
                     :
                     (<div className="cart cart-header">Você tem {cartItemsData && cartItemsData.length} itens no carrinho</div>)
                 }
-                <div className="cart">
+                <div className="cart margin-responsive">
                     <Fade left cascade>
                         <ul className="cart-items">
                             {cartItemsData.map(cartItem => (
@@ -47,7 +47,7 @@ const ShoppingCart: React.FC = () => {
                     </Fade>
                 </div>
                 {cartItems.length !== 0 && (
-                    <div className="cart">
+                    <div className="cart total-absolute">
                         <div className="total">
                             <div className="total-text">
                                 Total: {" "}

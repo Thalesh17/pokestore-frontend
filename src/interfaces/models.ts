@@ -3,6 +3,12 @@ export interface Pokemon {
     name: string;
     img: string;
     price: string;
+    height: string;
+    moves: MovesUrl[],
+    types: TypesUrl[];
+}
+export const setDefaultPokemon = () : Pokemon => {
+    return {id: '', img: '',name:'',price: '', moves: [], height: '', types: []}
 }
 
 export interface Config {
@@ -43,7 +49,7 @@ export interface ShoppingCart {
 }
 
 export interface Shopping {
-    name: string;
+    id: number;
     items: CartItem[];
     createDate: Date;
 }
@@ -58,6 +64,16 @@ export interface PokemonUrl {
     url: string;
 }
 
+export interface TypesUrl {
+    name: string;
+    url: string;
+}
+
+export interface MovesUrl {
+    name: string;
+    url: string;
+}
+
 export interface PokemonType {
     pokemon: PokemonUrl;
 }
@@ -65,4 +81,10 @@ export interface PokemonType {
 export interface FilterPokemonsProps {
     handleFilter(value: string): void;
     countResult: number;
+}
+
+export interface ModalPokemonProps {
+    pokemon: Pokemon;
+    isOpen: boolean;
+    closeModal(): void;
 }

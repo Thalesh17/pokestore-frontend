@@ -10,8 +10,9 @@ const PokemonProvider: React.FC = ({children}) => {
 
   const [ pokemons, setPokemons ] = useState<PokemonUrl[] | []>([]);
   const [ refreshData, setRefreshData] = useState<boolean>(false);
-  const [ config, setConfig ] = useState<Config>({ 
-    color: 'primary', 
+  const [ config, setConfig ] = useState<Config>(localStorage.getItem('@PokeStore:config') ? 
+  JSON.parse(localStorage.getItem('@PokeStore:config') || '{}') : { 
+    color: 'type-water', 
     type: '11', 
     name: 'Water',
     value: 'water'
@@ -19,14 +20,6 @@ const PokemonProvider: React.FC = ({children}) => {
 
   useEffect(() => { 
     const getPokemonsByType = async() => {
-      setPokemons([]);
-      let configStore = localStorage.getItem('@PokeStore:config');
-
-      if(configStore) {
-        setConfig(JSON.parse(configStore));
-      }else{
-        setConfigDefault();
-      }
       await findPokemons();
     }
 
@@ -44,8 +37,8 @@ const PokemonProvider: React.FC = ({children}) => {
   }
 
   const handleSaveConfig = async(values: Config): Promise<void> => {
-    localStorage.setItem('@PokeStore:config', JSON.stringify(values));
     setConfig(values);
+    localStorage.setItem('@PokeStore:config', JSON.stringify(values));
     setRefreshData(true);
     setPokemons([]);
     handleRemoveAllItems();

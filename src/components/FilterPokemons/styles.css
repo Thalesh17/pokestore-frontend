@@ -1,5 +1,11 @@
-.filter {
-    margin-top: 1rem;
+
+.filter-name {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.filter-result {
+    font-size: 15px;
 }
 .form-name-group {
     margin-bottom: 7px;
@@ -12,5 +18,6 @@
     font-weight: 600;
 }
 .form-name {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    width: 49%!important;
 }

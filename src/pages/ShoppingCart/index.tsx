@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../../contexts/shoppingCart';
 import { usePokemons } from '../../contexts/usePokemon';
-import { CartItem, Pokemon } from '../../interfaces/models';
+import { CartItem } from '../../interfaces/models';
 import { numberFormatBRL } from '../../utils/utils';
 import { Button } from '../../styles/components/components';
 import "./styles.css";
 
 const ShoppingCart: React.FC = () => {
     const Fade = require('react-reveal/Fade');
-    const { cartItems, handleRemove, handleSaveShopping } = useCart();
-    const [ cartItemsData, setCartItemsData ] = useState<CartItem[]>([]);
-    const [ open, setOpen ] = useState(false);
+    const { cartItems, handleRemove, handleSaveShopping, handleAdd } = useCart();
+    const [cartItemsData, setCartItemsData] = useState<CartItem[]>([]);
+    const [open, setOpen] = useState(false);
     const { getConfig } = usePokemons();
 
     useEffect(() => {
         setCartItemsData(cartItems);
     }, [cartItems]);
+
+    const saveShopping = () => {
+        handleSaveShopping();
+    }
 
     const renderCart = () => {
         return (
@@ -36,9 +40,14 @@ const ShoppingCart: React.FC = () => {
                                     <div className="cart-item-description">
                                         <div className="cart-item-name">{cartItem.name}</div>
                                         <div className="right">
-                                            {numberFormatBRL(parseFloat(cartItem.price))} X {cartItem.count}
-                                            <button className="btn-remove" onClick={() => handleRemove(cartItem.id)}>-</button>
-                                            <button className="btn-add" onClick={() => handleRemove(cartItem.id)}>+</button>
+                                            <div>
+                                                {numberFormatBRL(parseFloat(cartItem.price))}
+                                            </div>
+                                            <div className="btn-content">
+                                                <button onClick={() => handleRemove(cartItem.id)} className="btn-cart"><span>-</span></button>
+                                                <div className="quantity__input">{cartItem.count}</div>
+                                                <button onClick={() => handleAdd(cartItem.pokemon)} className="btn-cart"><span>+</span></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -54,8 +63,8 @@ const ShoppingCart: React.FC = () => {
                                 {numberFormatBRL(cartItems.reduce((a, c) => a + (parseFloat(c.price) * c.count), 0))}
                             </div>
                             <Button
-                                className={`${getConfig().color}`}
-                                onClick={handleSaveShopping}
+                                className={`${getConfig().color.secondary}`}
+                                onClick={saveShopping}
                             >Finalizar</Button>
                         </div>
                     </div>

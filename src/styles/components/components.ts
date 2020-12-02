@@ -13,11 +13,16 @@ export const Table = styled.table`
     border: 1px solid #ddd;
 `;
 export const Button = styled.button`
+    cursor: pointer;
     border: none;
     color: white; 
     padding: 14px 28px; 
     border-radius: 8px;
-    cursor: pointer;
+    opacity: 1;
+    transition: 0.3s;
+    :hover {
+        opacity: 0.8;
+    }
 `;
 export const Content = styled.div`
     margin-top: 5rem;

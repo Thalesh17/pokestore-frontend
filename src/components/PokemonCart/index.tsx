@@ -3,17 +3,18 @@ import { useCart } from '../../contexts/shoppingCart';
 import { usePokemons } from '../../contexts/usePokemon';
 import { Pokemon, PokemonProps, setDefaultPokemon } from '../../interfaces/models';
 import { numberFormatBRL } from '../../utils/utils';
-import { Button } from '../../styles/components/components';
-import api from '../../services/api';
-import "./styles.css";
 import ModalPokemon from '../../pages/ModalPokemon';
+import api from '../../services/api';
+import noImage from '../../assets/no.png';
+import "./styles.css";
 
 const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
     const Fade = require('react-reveal/Fade');
+    const Zoom = require('react-reveal/Zoom');
     const { config } = usePokemons();
-    const { handleAdd, handleRemove } = useCart();
-    const [pokemonData, setPokemonData] = useState<Pokemon>(setDefaultPokemon());
-    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+    const { handleAdd } = useCart();
+    const [ pokemonData, setPokemonData ] = useState<Pokemon>(setDefaultPokemon());
+    const [ isOpenModal, setIsOpenModal ] = useState<boolean>(false);
 
     useEffect(() => {
         const getPokemonByUrl = async (url: string) => {
@@ -34,15 +35,17 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
 
     return (
         <>
-            {/* {!pokemonData && <Spinner className="spinner-load" animation="border" variant="primary" />} */}
             {pokemonData && (
                 <Fade bottom cascade>
                     <div className="pokemon_item">
-                        <div className={`card_image ${config.color}`}>
-                            <img
-                                alt="item"
-                                src={pokemonData.img}
-                            />
+                        <div className={`card_image ${config.color.primary}`}>
+                            <Zoom>
+
+                                <img
+                                    alt={pokemonData.name}
+                                    src={pokemonData.img}
+                                />
+                            </Zoom>
                         </div>
                         <div className="card-body">
                             <div className="justify-title-price">
@@ -54,14 +57,13 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
                                 </h5>
                             </div>
                             <div className={`content-button`}>
-                                <div onClick={() => openModal(pokemonData)} className={`pokemon_cart ${config.color}`}>
+                                <div onClick={() => openModal(pokemonData)} className={`pokemon_cart ${config.color.secondary}`}>
                                     <h5 className="text-black">
                                         Detalhes
                                     </h5>
                                 </div>
-                                <div className={`pokemon_cart ${config.color}`}>
+                                <div data-testid='add-pokemon' onClick={() => handleAdd(pokemonData)} className={`pokemon_cart ${config.color.secondary}`}>
                                     <h5
-                                        onClick={() => handleAdd(pokemonData)}
                                         className={`btn-transparent text-black`}>Adicionar
                                     </h5>
                                 </div>

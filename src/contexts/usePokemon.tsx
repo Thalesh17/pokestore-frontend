@@ -1,25 +1,25 @@
-import React, {createContext, useEffect, useState, useContext} from 'react';
+import React, { createContext, useEffect, useState, useContext } from 'react';
 import { Config, ContextPokemon, PokemonUrl } from '../interfaces/models';
 import api from '../services/api';
 import { useCart } from './shoppingCart';
 
 const PokemonContext = createContext<ContextPokemon>({} as ContextPokemon);
 
-const PokemonProvider: React.FC = ({children}) => {
+const PokemonProvider: React.FC = ({ children }) => {
   const { handleRemoveAllItems } = useCart();
 
-  const [ pokemons, setPokemons ] = useState<PokemonUrl[] | []>([]);
-  const [ refreshData, setRefreshData] = useState<boolean>(false);
-  const [ config, setConfig ] = useState<Config>(localStorage.getItem('@PokeStore:config') ? 
-  JSON.parse(localStorage.getItem('@PokeStore:config') || '{}') : { 
-    color: 'type-water', 
-    type: '11', 
-    name: 'Water',
-    value: 'water'
-  });
+  const [pokemons, setPokemons] = useState<PokemonUrl[] | []>([]);
+  const [refreshData, setRefreshData] = useState<boolean>(false);
+  const [config, setConfig] = useState<Config>(localStorage.getItem('@PokeStore:config') ?
+    JSON.parse(localStorage.getItem('@PokeStore:config') || '{}') : {
+      color: 'type-water',
+      type: '11',
+      name: 'Water',
+      value: 'water'
+    });
 
-  useEffect(() => { 
-    const getPokemonsByType = async() => {
+  useEffect(() => {
+    const getPokemonsByType = async () => {
       await findPokemons();
     }
 
@@ -31,12 +31,8 @@ const PokemonProvider: React.FC = ({children}) => {
     setPokemons(pokemons);
     return pokemons;
   }
-
-  const setConfigDefault = (): void => {
-    handleSaveConfig({color: 'type-water', name: 'Água',type: '11',value:'11'})
-  }
-
-  const handleSaveConfig = async(values: Config): Promise<void> => {
+  
+  const handleSaveConfig = async (values: Config): Promise<void> => {
     setConfig(values);
     localStorage.setItem('@PokeStore:config', JSON.stringify(values));
     setRefreshData(true);
@@ -48,10 +44,22 @@ const PokemonProvider: React.FC = ({children}) => {
   const getConfigs = (): Config[] => {
     return [
       {
-        color: 'type-water', name:'Água',value:'water',type:'11'
+        color: {
+          primary: 'type-water',
+          secondary: 'type-water-secondary'
+        },
+        name: 'Água',
+        value: 'water',
+        type: '11'
       },
       {
-        color: 'type-fire',name:'Fogo',value:'fire',type:'10'
+        color: {
+          primary: 'type-fire',
+          secondary: 'type-fire-secondary'
+        },
+        name: 'Fogo',
+        value: 'fire',
+        type: '10'
       }
     ];
   }
@@ -60,11 +68,11 @@ const PokemonProvider: React.FC = ({children}) => {
   }
 
   return (
-    <PokemonContext.Provider value={{ 
-      pokemons: pokemons, 
-      config: config, 
-      findPokemons, 
-      getConfigs, 
+    <PokemonContext.Provider value={{
+      pokemons: pokemons,
+      config: config,
+      findPokemons,
+      getConfigs,
       getConfig,
       handleSaveConfig
     }}>
@@ -74,7 +82,7 @@ const PokemonProvider: React.FC = ({children}) => {
 };
 
 function usePokemons() {
-  return useContext(PokemonContext);  
+  return useContext(PokemonContext);
 }
 
-export {PokemonProvider, usePokemons, PokemonContext};
+export { PokemonProvider, usePokemons, PokemonContext };

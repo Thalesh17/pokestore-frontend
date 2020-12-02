@@ -82,7 +82,6 @@
     opacity: 1;
     transition: 0.3s;
 }
-
 .pokemon_cart:hover {
     opacity: 0.8
 }

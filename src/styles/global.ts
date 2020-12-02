@@ -6,6 +6,8 @@ export default createGlobalStyle`
   --type-water: #3a86ff;
   --type-fire: #f94144;
   --text-black: #110B11;
+  --type-water-secondary: #184280; 
+  --type-fire-secondary:  #c51a1d;
 }
 
 *{
@@ -17,7 +19,7 @@ body {
     background: #f5f5f5;
     font-size: 14px;
     color: 14px;
-    font-family: 'Roboto';
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .type-water {
@@ -26,6 +28,12 @@ body {
 .type-fire {
   background-color: var(--type-fire);
 }
+.type-water-secondary {
+  background-color: var(--type-water-secondary);
+}
+.type-fire-secondary {
+  background-color: var(--type-fire-secondary);
+}
 .text-black {
   color: var(--text-black);
 }
@@ -33,7 +41,9 @@ th, td {
   text-align: left;
   padding: 16px;
 }
-
+button {
+  cursor: pointer;
+}
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }

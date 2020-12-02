@@ -1,3 +1,115 @@
 .content-modal {
     display: flex;
+    flex-direction: column;
+    width: 60vh;
+}
+.pokemon-image {
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+.btn-add {
+    float: right;
+}
+.btn-back {
+    float: left;
+}
+.body {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.body span {
+    color: #fff;
+    font-size: 14px;
+    width: auto !important;
+    border-radius: 3px;
+    width: auto !important;
+    padding: 4px 8px;
+    margin-right: 5px;
+    text-transform: capitalize !important;
+}
+.pokemon-descriptions h5 {
+    font-size: 18px;
+}
+.content-name-price {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.flex-gap {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    gap: 12px;
+}
+.flex-gap h5 {
+    font-weight: 500;
+}
+.react-responsive-modal-closeButton {
+    display: none;
+}
+.body .grass {
+    background-color: #a7db8d;
+}
+
+.body .fire {
+    background-color: var(--type-fire);
+}
+
+.body .water {
+    background-color: #94dbee;
+    color: #374553;
+}
+
+.body .poison {
+    background-color: #d8a4d8;
+}
+
+.body .flying {
+    background-color: #c6b7f5;
+}
+
+.body .bug {
+    background-color: #c6d16e;
+}
+
+.body .normal {
+    background-color: #C6C6A7;
+}
+
+.body .ground,
+.rock {
+    background-color: #D1C17D;
+}
+
+.body .fairy {
+    background-color: #F4BDC9;
+}
+
+.body .fighting {
+    background-color: #D67873;
+}
+
+.body .psychic {
+    background-color: #FA92B2;
+}
+
+.body .ghost {
+    background-color: #B09ECE;
+}
+
+.body .steel {
+    background-color: #D1D1E0;
+}
+
+.body .dark {
+    background-color: #A29288;
+}
+
+.body .ice {
+    background-color: #BCE6E6;
+}
+
+.body .electric {
+    background-color: #FAE078;
 }

@@ -1,3 +1,7 @@
+import { RouteComponentProps } from "react-router-dom"
+
+export interface ChildComponentProps extends RouteComponentProps<any> {}
+
 export interface Pokemon {
     id: string;
     name: string;
@@ -7,6 +11,7 @@ export interface Pokemon {
     moves: MovesUrl[],
     types: TypesUrl[];
 }
+
 export const setDefaultPokemon = () : Pokemon => {
     return {id: '', img: '',name:'',price: '', moves: [], height: '', types: []}
 }
@@ -14,8 +19,13 @@ export const setDefaultPokemon = () : Pokemon => {
 export interface Config {
     name: string;
     type: string;
-    color: string;
+    color: Color;
     value: string;
+}
+
+export interface Color {
+    primary: string;
+    secondary: string;
 }
 
 export interface Cart {
@@ -28,6 +38,7 @@ export interface CartItem {
     img: string;
     price: string;
     count: number;
+    pokemon: Pokemon;
 }
 
 export interface ContextPokemon {
@@ -51,7 +62,7 @@ export interface ShoppingCart {
 export interface Shopping {
     id: number;
     items: CartItem[];
-    createDate: Date;
+    createDate: string;
 }
 
 export interface PokemonProps {

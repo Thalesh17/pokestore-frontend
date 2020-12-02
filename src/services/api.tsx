@@ -34,7 +34,8 @@ export default {
             pokemon = {
                 id: response.data.id, 
                 name: capitalize(response.data.name), 
-                img: response.data.sprites.other.dream_world.front_default,
+                img: !response.data.sprites.other.dream_world.front_default ?
+                response.data.sprites.front_default : response.data.sprites.other.dream_world.front_default,
                 price: randomNumber(),
                 height: response.data.height,
                 moves: response.data.moves.slice(0, 3).map((r: any) => {
@@ -45,7 +46,6 @@ export default {
                 }})
             }
         });
-        console.log(pokemon)
 
         return pokemon;
     }

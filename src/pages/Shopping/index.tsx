@@ -20,6 +20,7 @@ const Shopping: React.FC = () => {
                     alt={item.name}
                 />
                 <div className="pokemon-name">{item.name}</div>
+                <div className="pokemon-name">X{item.count}</div>
             </div>  
         ));
     }
@@ -28,7 +29,7 @@ const Shopping: React.FC = () => {
             <Header />
             <Container>
                 <Content>
-                    <h3 className="align-title">🛒 Compras</h3>
+                    <h2 className="align-title">🛒 Pedidos</h2>
                     <Table>
                         <thead>
                             <tr>
@@ -42,7 +43,7 @@ const Shopping: React.FC = () => {
                                 <tr>
                                     <td className="strong-id">#{shop.id}</td>
                                     <td><div className="flex-items">{renderItems(shop)}</div></td>
-                                    <td>{moment(String(shop.createDate).split('T')[0]).format('L')}</td>
+                                    <td>{shop.createDate}</td>
                                 </tr>
                             ))}
                         </tbody>

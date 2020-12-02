@@ -125,6 +125,13 @@
 .btn-add {
     margin-left: .4rem;
 }
+.btn-content {
+    display: flex;
+}
+.btn-cart {
+    padding-left: 7px;
+    padding-right: 7px;
+}
 
 @media screen and (max-width: 800px) {
     .sidebar {
@@ -164,6 +171,6 @@
         background: #fff;
         z-index: 99999;
         right: 0.1rem;
+        bottom: 0;
     }
-    
 }

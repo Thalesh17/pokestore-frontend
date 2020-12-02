@@ -1,3 +1,5 @@
+import { Config } from "../interfaces/models";
+
 export const randomNumber = (): string => {
     return (Math.random() * (100 - 50) + 50).toFixed(2);
 }
@@ -10,4 +12,26 @@ export const numberFormatBRL = (value: number): string=> {
         currency: 'BRL'
       })
     return formatter.format(value);
+}
+export const configTypeFire = (): Config => {
+    return {
+            color: {
+                primary: 'type-fire',
+                secondary: 'type-fire-secondary'
+            },
+            name: 'Fogo',
+            value:'fire',
+            type:'10'
+    }
+}
+export const configTypeWater = (): Config => {
+    return {
+            color: {
+                primary: 'type-water',
+                secondary: 'type-water-secondary'
+            },
+            name: 'Água',
+            value:'water',
+            type:'11'
+    }
 }

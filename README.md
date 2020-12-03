@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# PokeShop
+> Aplicação desenvolvida para a vaga de Front end  Pleno da B2W Digital.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+    A aplicação está hospedada no ambiente Heroku, clique abaixo para utilizar
+   ## [Clique aqui para acessar a aplicação](https://pokeshop-b2w.herokuapp.com/) 
+## Sobre a aplicação:
+>PokeShop é uma loja de pokemons onde o usuario poderá visualizar preços e adquirir pokemons de acordo com o tipo do pokemon. A Pokeshop possui 3 tipos de lojas: Água, Fogo e Dragão. Ao escolher uma das lojas, o design e as cores da aplicação mudam, assim como os pokemons. O Usuario poderá desfrutar de um design responsivo, disponivel para qualquer tela e acompanhar o pedido atraves do carrinho, se por acaso o usuário fechar a aba e entrar novamente, poderá ver seu carrinho de compras salvos. Após realizar a compra, é possivel ver tambem os pedido na Aba Pedidos da aplicação.
 
-In the project directory, you can run:
+## Tecnologias utilizadas
+* #### <b>HTML5
+* #### <b>CSS3
+* #### <b>ReactJS
+* #### <b>React Hooks (ContextApi, useState, useEffect)
+* #### <b>React-Testing-Library
 
-### `yarn start`
+## Recursos utilizados
+* #### styled-components
+* #### react-router-dom
+* #### axios
+* #### moment
+* #### react-responsive-modal
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Configuração
+* #### Clonar o projeto
+* ####  Rodar os comandos:
+    * #### npm install
+    * #### npm start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Funcionalidades do Sistema
+ * #### Escolha de 2 lojas dos tipos (Fogo, Água)
+ * #### Listagem de Pokemons
+ * #### Carrinho de Compras
+ * #### Resumo do Carrinho    
+ * #### Tela de Pedidos
+ * #### Detalhe do Pokemon
+ * #### Filtro por nome do pokemon
+ * #### Dados salvos localmente
+ * #### Modal de pedido realizado
 
-### `yarn test`
+ 
+## Redes Sociais
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Linkedin: – [Thales Henrique](https://www.linkedin.com/in/thales-henrique-pb/.)
 
-### `yarn build`
+* Github: – [Thalesh17](https://github.com/Thalesh17.)
+ 
+## Passos para reproduzir
+    > Ao iniciar a aplicação clicar em algum dos tipos (Fogo, Água, Dragão). Pesquisar por nome, clicar em Detalhar, clicar em Adicionar, clicar novamente para adicionar, clicar em Finalizar. Visualizar a aba de Pedidos. Voltar a Home e fazer com outros tipos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

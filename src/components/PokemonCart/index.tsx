@@ -5,7 +5,6 @@ import { Pokemon, PokemonProps, setDefaultPokemon } from '../../interfaces/model
 import { numberFormatBRL } from '../../utils/utils';
 import ModalPokemon from '../../pages/ModalPokemon';
 import api from '../../services/api';
-import noImage from '../../assets/no.png';
 import "./styles.css";
 import {FaTasks,FaPlusCircle} from 'react-icons/fa';
 

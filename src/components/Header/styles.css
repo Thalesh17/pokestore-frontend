@@ -32,23 +32,6 @@
 .nav a:hover {
   transform: scale(1.1);
 }
-.nav button {
-  padding: 10px;
-  outline: none;
-  border: none;
-  font-size: 20px;
-  color: #fff;
-  font-weight: 600;
-  background-color: rgba(255, 0, 0, 0.5);
-  box-shadow: 0px 5px 0px 0px rgba(255, 0, 0, 0.25);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 70ms;
-}
-.nav button:active {
-  transform: translateY(3px);
-  box-shadow: 0px 2px 0px 0px rgba(255, 0, 0, 0.25);
-}
 .pokeball {
   display: none;
   grid-area: burger;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { usePokemons } from '../../contexts/usePokemon';
 import { Config, ChildComponentProps } from '../../interfaces/models';
-import "./styles.css";
 import { configTypeFire, configTypeWater, configTypeDragon } from '../../utils/utils';
+import "./styles.css";
 
 const Home:  React.FC<ChildComponentProps> = ({ history })  => {
     const { handleSaveConfig } = usePokemons();

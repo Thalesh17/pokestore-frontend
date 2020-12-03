@@ -1,6 +1,5 @@
 import React from 'react';
-import {render, fireEvent, getByTestId, act, waitForElementToBeRemoved, waitFor } from '@testing-library/react';
-import Pokemons from '.';
+import {render, waitFor } from '@testing-library/react';
 import { PokemonContext } from '../../contexts/usePokemon';
 import { ContextPokemon, Pokemon, PokemonUrl, ShoppingCart as ShoppingModel } from '../../interfaces/models';
 import { configTypeWater } from '../../utils/utils';
@@ -36,16 +35,7 @@ const getContextShopValue = (): ShoppingModel => {
     };
     return  {
         cartItems: [{id: '13',price:'200,00',img:'',name:'Teste Add Shopping',count:2, 
-        pokemon: {
-            id: '13',
-            name: 'Teste Add Shopping', 
-            img:'',
-            price:'200,00',
-            moves: [],
-            weight: '',
-            types:[],
-            height:'12'
-        }
+        pokemon: pokemon
         }],
         handleAdd: (pokemon) => {jest.fn().mockReturnValue(pokemon)},
         handleRemove: () => {},
@@ -74,7 +64,7 @@ describe('Component Shopping', () => {
     })
 
     it('insert item in Shopping Cart', async() => {
-        const { container, getAllByText, getByTestId } = render(
+        const { getByTestId } = render(
             <ShoppingCartContext.Provider value={getContextShopValue()}>
                 <PokemonContext.Provider value={getContextValues()}>
                     <ShoppingCart />

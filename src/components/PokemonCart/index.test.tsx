@@ -3,9 +3,9 @@ import {render, fireEvent, act, waitFor } from '@testing-library/react';
 import { PokemonContext, PokemonProvider } from '../../contexts/usePokemon';
 import { ContextPokemon, Pokemon, PokemonUrl } from '../../interfaces/models';
 import { configTypeWater } from '../../utils/utils';
-import api from '../../services/api';
-import ShoppingCart from '../../pages/ShoppingCart';
 import { ShoppingCartContext, ShoppingCartProvider } from '../../contexts/shoppingCart';
+import ShoppingCart from '../../pages/ShoppingCart';
+import api from '../../services/api';
 
 const findPokemons = async(): Promise<PokemonUrl[]> => {
     let teste: PokemonUrl[] = await [{id: 'teste',url: 'teste',name: 'thales' }];

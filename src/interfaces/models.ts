@@ -8,12 +8,13 @@ export interface Pokemon {
     img: string;
     price: string;
     height: string;
+    weight: string;
     moves: MovesUrl[],
     types: TypesUrl[];
 }
 
 export const setDefaultPokemon = () : Pokemon => {
-    return {id: '', img: '',name:'',price: '', moves: [], height: '', types: []}
+    return {id: '', img: '',name:'',price: '', moves: [], height: '', types: [], weight: ''}
 }
 
 export interface Config {

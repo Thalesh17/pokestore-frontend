@@ -1,7 +1,16 @@
 .content-modal {
+    border: none;
+    position: relative;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-direction: column;
     flex-direction: column;
-    width: 60vh;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+    width: auto;
 }
 .pokemon-image {
     display: flex;
@@ -10,6 +19,8 @@
 }
 .btn-add {
     float: right;
+    background-color: #28a745;
+    border-color: #28a745;
 }
 .btn-back {
     float: left;
@@ -36,6 +47,10 @@
     justify-content: space-between;
     margin-top: 1rem;
 }
+.weight-height {
+    display: flex;
+    justify-content: space-between;
+}
 .flex-gap {
     display: inline-flex;
     flex-wrap: wrap;
@@ -44,6 +59,10 @@
 }
 .flex-gap h5 {
     font-weight: 500;
+}
+.content-btn {
+    display: flex;
+    justify-content: space-between;
 }
 .react-responsive-modal-closeButton {
     display: none;
@@ -112,4 +131,7 @@
 
 .body .electric {
     background-color: #FAE078;
+}
+.body .dragon {
+    background-color: var(--type-dragon);
 }

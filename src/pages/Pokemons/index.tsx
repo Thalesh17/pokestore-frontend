@@ -6,7 +6,7 @@ import { PokemonUrl } from '../../interfaces/models';
 import "./styles.css";
 
 const Pokemons: React.FC = () => {
-    const { pokemons } = usePokemons();
+    const { pokemons, config } = usePokemons();
     const [ pokemonsFilters, setPokemonsFilters ] = useState<PokemonUrl[]>([]);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const Pokemons: React.FC = () => {
                     handleFilter={handleFilter} 
                     countResult={pokemonsFilters.length} 
                 />
-                <ul className="pokemon_items">
+                <ul data-testid={config.color.primary} className="pokemon_items">
                     {renderPokemonCart()}
                 </ul>
             </div>

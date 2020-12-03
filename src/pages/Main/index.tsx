@@ -8,7 +8,7 @@ import { Container } from '../../styles/components/components';
 const Main: React.FC = () => {
     return (
         <>
-            <Header />
+            <Header/>
              <Container>
                 <div className="content">
                     <Pokemons />

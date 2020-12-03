@@ -71,7 +71,7 @@ const ShoppingCartProvider: React.FC = ({ children }) => {
           icon: "success",
           title: `Pedido Nº #${shopping.id}. Sua compra foi realizada com sucesso`,
           text: 'Confira na sua aba de Pedidos.',
-          timer: 2000
+          timer: 3000
         });
 
         handleRemoveAllItems();

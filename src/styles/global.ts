@@ -8,6 +8,8 @@ export default createGlobalStyle`
   --text-black: #110B11;
   --type-water-secondary: #184280; 
   --type-fire-secondary:  #c51a1d;
+  --type-dragon: #6A2918; 
+  --type-dragon-secondary:  #6A2918;
 }
 
 *{
@@ -33,6 +35,12 @@ body {
 }
 .type-fire-secondary {
   background-color: var(--type-fire-secondary);
+}
+.type-dragon {
+  background-color: var(--type-dragon);
+}
+.type-dragon-secondary {
+  background-color: var(--type-dragon-secondary);
 }
 .text-black {
   color: var(--text-black);

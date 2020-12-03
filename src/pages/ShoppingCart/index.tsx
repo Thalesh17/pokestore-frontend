@@ -8,6 +8,7 @@ import "./styles.css";
 
 const ShoppingCart: React.FC = () => {
     const Fade = require('react-reveal/Fade');
+    const Zoom = require('react-reveal/Zoom');
     const { cartItems, handleRemove, handleSaveShopping, handleAdd } = useCart();
     const [cartItemsData, setCartItemsData] = useState<CartItem[]>([]);
     const [open, setOpen] = useState(false);
@@ -21,19 +22,23 @@ const ShoppingCart: React.FC = () => {
         handleSaveShopping();
     }
 
+    const getCountItems = () => {
+        return cartItems.reduce((a, c) => a + (c.count), 0);
+    }
+
     const renderCart = () => {
         return (
             <>
                 {cartItemsData && cartItemsData.length === 0 ?
                     (<div className="cart cart-header">Carrinho está vazio</div>)
                     :
-                    (<div className="cart cart-header">Você tem {cartItemsData && cartItemsData.length} itens no carrinho</div>)
+                    (<div className="cart cart-header">Você tem {cartItemsData && getCountItems()} itens no carrinho</div>)
                 }
                 <div className="cart margin-responsive">
                     <Fade left cascade>
                         <ul className="cart-items">
                             {cartItemsData.map(cartItem => (
-                                <li key={cartItem.id}>
+                                <li data-testid={`li-cart-item-${cartItem.id}`} key={cartItem.id}>
                                     <div>
                                         <img src={cartItem.img} alt={cartItem.name} />
                                     </div>
@@ -46,7 +51,7 @@ const ShoppingCart: React.FC = () => {
                                             <div className="btn-content">
                                                 <button onClick={() => handleRemove(cartItem.id)} className="btn-cart"><span>-</span></button>
                                                 <div className="quantity__input">{cartItem.count}</div>
-                                                <button onClick={() => handleAdd(cartItem.pokemon)} className="btn-cart"><span>+</span></button>
+                                                <button  onClick={() => handleAdd(cartItem.pokemon)} className="btn-cart" data-testid="btn-add-pokemon"><span>+</span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -77,6 +82,11 @@ const ShoppingCart: React.FC = () => {
         <div className="sidebar">
             <div onClick={() => setOpen(!open)} className={`cart-responsive ${open ? 'open' : 'closed'}`}>
                 🛒
+                    <div className="count-cart">
+                        <Zoom>
+                            {getCountItems()}
+                        </Zoom>
+                    </div>
             </div>
             <div className={`cart-content-responsive ${open ?
                 'open' :

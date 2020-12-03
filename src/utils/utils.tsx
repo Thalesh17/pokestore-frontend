@@ -35,3 +35,14 @@ export const configTypeWater = (): Config => {
             type:'11'
     }
 }
+export const configTypeDragon = (): Config => {
+    return {
+            color: {
+                primary: 'type-dragon',
+                secondary: 'type-dragon-secondary'
+            },
+            name: 'Dragão',
+            value:'dragon',
+            type:'16'
+    }
+}

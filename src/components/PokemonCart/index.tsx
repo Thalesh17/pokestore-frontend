@@ -7,6 +7,7 @@ import ModalPokemon from '../../pages/ModalPokemon';
 import api from '../../services/api';
 import noImage from '../../assets/no.png';
 import "./styles.css";
+import {FaTasks,FaPlusCircle} from 'react-icons/fa';
 
 const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
     const Fade = require('react-reveal/Fade');
@@ -16,12 +17,12 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
     const [ pokemonData, setPokemonData ] = useState<Pokemon>(setDefaultPokemon());
     const [ isOpenModal, setIsOpenModal ] = useState<boolean>(false);
 
-    useEffect(() => {
-        const getPokemonByUrl = async (url: string) => {
-            let data = await api.getPokemonByUrl(url);
-            setPokemonData(data);
-        }
+    const getPokemonByUrl = async (url: string) => {
+        let data = await api.getPokemonByUrl(url);
+        setPokemonData(data);
+    }
 
+    useEffect(() => {
         getPokemonByUrl(pokemon.url);
     }, [pokemon]);
 
@@ -31,6 +32,10 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
 
     const closeModalDetail = (): void => {
         setIsOpenModal(false);
+    }
+
+    const handleAddPokemon = (value: Pokemon) => {
+        handleAdd(value);
     }
 
     return (
@@ -49,7 +54,7 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
                         </div>
                         <div className="card-body">
                             <div className="justify-title-price">
-                                <h5 className="text-black">
+                                <h5 data-testid={pokemonData.name} className="text-black">
                                     {pokemonData.name}
                                 </h5>
                                 <h5 className="text-black">
@@ -58,14 +63,13 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
                             </div>
                             <div className={`content-button`}>
                                 <div onClick={() => openModal(pokemonData)} className={`pokemon_cart ${config.color.secondary}`}>
+                                    <FaTasks color={'#fff'} />
                                     <h5 className="text-black">
-                                        Detalhes
+                                    Detalhes
                                     </h5>
                                 </div>
-                                <div data-testid='add-pokemon' onClick={() => handleAdd(pokemonData)} className={`pokemon_cart ${config.color.secondary}`}>
-                                    <h5
-                                        className={`btn-transparent text-black`}>Adicionar
-                                    </h5>
+                                <div className="pokemon_cart btn-add" data-testid='add-pokemon' onClick={() => handleAddPokemon(pokemonData)}>
+                                <FaPlusCircle color={'#fff'} /><h5 className={`text-black`}>Adicionar</h5>
                                 </div>
                             </div>
                         </div>

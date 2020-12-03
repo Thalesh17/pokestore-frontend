@@ -1,14 +1,16 @@
 import React from 'react';
-import { Container, Table, Content } from "../../styles/components/components";
+import { Container, Content } from "../../styles/components/components";
 import { useCart } from '../../contexts/shoppingCart';
+import { Shopping as ShoppingModel }  from '../../interfaces/models';
+import { usePokemons } from '../../contexts/usePokemon';
+import { FaCheck } from 'react-icons/fa';
 import Header from '../../components/Header';
-import moment from 'moment';
 import 'moment/locale/pt-br';
 import "./styles.css";
-import { Shopping as ShoppingModel }  from '../../interfaces/models';
 
 const Shopping: React.FC = () => {
     const { shoppings } = useCart();
+    const { getConfig } = usePokemons();
 
     const renderItems = (shop: ShoppingModel) => {
         return shop.items.map(item => (
@@ -29,25 +31,20 @@ const Shopping: React.FC = () => {
             <Header />
             <Container>
                 <Content>
-                    <h2 className="align-title">🛒 Pedidos</h2>
-                    <Table>
-                        <thead>
-                            <tr>
-                                <th>Pedido Nº</th>
-                                <th>Itens</th>
-                                <th>Data</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {shoppings.map(shop => (
-                                <tr>
-                                    <td className="strong-id">#{shop.id}</td>
-                                    <td><div className="flex-items">{renderItems(shop)}</div></td>
-                                    <td>{shop.createDate}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </Table>
+                    <div className="content-shop">
+                        {shoppings.map(shop => (
+                            <div key={shop.id} className="card">
+                                <div className={`content-number ${getConfig().color.secondary}`}>                                
+                                    <h1 className="strong-id">Pedido Nº #{shop.id}  <FaCheck color={'#0ef60e'} /></h1>
+                                   
+                                </div>
+                                <div className="flex-items">{renderItems(shop)}</div>
+                                <div className={`date-footer ${getConfig().color.secondary}`}>
+                                    <div>Pedido realizado em: {shop.createDate}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </Content>
             </Container>
         </>

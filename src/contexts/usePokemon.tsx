@@ -60,7 +60,16 @@ const PokemonProvider: React.FC = ({ children }) => {
         name: 'Fogo',
         value: 'fire',
         type: '10'
-      }
+      },
+      {
+        color: {
+          primary: 'type-dragon',
+          secondary: 'type-dragon-secondary'
+        },
+        name: 'Dragão',
+        value: 'dragon',
+        type: '16'
+      },
     ];
   }
   const getConfig = (): Config => {

@@ -132,7 +132,14 @@
     padding-left: 7px;
     padding-right: 7px;
 }
-
+.count-cart {
+    position: absolute;
+    bottom: 0;
+    top: 0.50rem;
+    right: 2.20rem;
+    font-size: 16px;
+    font-weight: 700;
+}
 @media screen and (max-width: 800px) {
     .sidebar {
         height: 0;
@@ -171,6 +178,7 @@
         background: #fff;
         z-index: 99999;
         right: 0.1rem;
+        width: 15.80rem;
         bottom: 0;
     }
 }

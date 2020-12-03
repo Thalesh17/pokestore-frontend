@@ -24,7 +24,7 @@ export default {
         return pokemons;
     },
     async getPokemonByUrl(url: string): Promise<Pokemon> {
-        var pokemon: Pokemon = {id: '',name: '',img: '',price: '', types: [], height: '', moves: []};
+        var pokemon: Pokemon = {id: '',name: '',img: '',price: '', types: [], height: '', moves: [], weight: ''};
 
         await api.get(url).then(response => {
             pokemon = {
@@ -34,6 +34,7 @@ export default {
                 response.data.sprites.front_default : response.data.sprites.other.dream_world.front_default,
                 price: randomNumber(),
                 height: response.data.height,
+                weight: response.data.weight,
                 moves: response.data.moves.slice(0, 3).map((r: any) => {
                     return { name: r.move.name, url: r.move.url
                 }}),

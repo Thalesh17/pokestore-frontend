@@ -11,7 +11,7 @@ import "./styles.css";
 const ModalPokemon: React.FC<ModalPokemonProps> = ({isOpen, closeModal, pokemon}) => {
     const Zoom = require('react-reveal/Zoom');
     const Fade = require('react-reveal/Fade');
-    const { handleAdd, handleRemove } = useCart();
+    const { handleAdd } = useCart();
     const { config } = usePokemons();
 
     return (
@@ -38,6 +38,20 @@ const ModalPokemon: React.FC<ModalPokemonProps> = ({isOpen, closeModal, pokemon}
                         <span className={type.name}>{type.name}</span>
                         ))}
                     </div>
+                    <div className="body weight-height">
+                        <div>
+                            <h5>Tamanho</h5>
+                            <div className="flex-gap">
+                                <h5>{pokemon.height}</h5>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Peso</h5>
+                            <div className="flex-gap">
+                                <h5>{pokemon.weight}</h5>
+                            </div>
+                        </div>
+                    </div>                    
                     <div className="body">
                         <h5>Movimentos</h5>
                         <div className="flex-gap">
@@ -45,13 +59,7 @@ const ModalPokemon: React.FC<ModalPokemonProps> = ({isOpen, closeModal, pokemon}
                                 <h5>{type.name}</h5>
                             ))}
                         </div>
-                    </div>                    
-                    <div className="body">
-                        <h5>Tamanho</h5>
-                        <div className="flex-gap">
-                            <h5>{pokemon.height}</h5>
-                        </div>
-                    </div>                    
+                    </div>                          
                     <div className="content-btn">
                         <Button
                             onClick={() => closeModal()}
@@ -59,7 +67,7 @@ const ModalPokemon: React.FC<ModalPokemonProps> = ({isOpen, closeModal, pokemon}
                         </Button>
                         <Button
                             onClick={() => handleAdd(pokemon)}
-                            className={`${config.color.secondary} btn-add`}>Adicionar
+                            className={`btn-add`}>Adicionar
                         </Button>
                     </div>
                 </div>

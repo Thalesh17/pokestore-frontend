@@ -29,17 +29,16 @@
     height: 2rem;
     align-items: center
 }
+.content-no-item {
+    text-align: center;
+    margin-top: 6rem;
+}
 .content-shop {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
-.strong-id {
-    font-weight: 600;
-    font-size: 18px;
-    text-align: center;
-    color: #fff;
-}
+
 .card {
     display: flex;
     width: 16rem;

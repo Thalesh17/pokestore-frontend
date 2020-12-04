@@ -32,8 +32,8 @@ const Shopping: React.FC = () => {
             <Container>
                 <Content>
                     {shoppings.length < 1 && (
-                        <div className={`content-number ${getConfig().color.primary}`}>                                
-                            <h1 className="strong-id">Nenhum pedido cadastrado</h1>
+                        <div className="content-no-item">                                
+                            <h1>Nenhum pedido cadastrado</h1>
                         </div>
                     )}
                     {shoppings && shoppings.length > 0 && (

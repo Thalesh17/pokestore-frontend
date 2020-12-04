@@ -78,7 +78,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .30rem;
+    padding: .80rem;
     cursor: pointer;
     opacity: 1;
     transition: 0.3s;
@@ -89,7 +89,7 @@
 .pokemon_cart h5 {
     font-size: 16px;
     color: #fff;
-    padding-left: 2px;
+    padding-left: 5px;
 }
 .content-button div:last-child {
     background-color: #28a745;

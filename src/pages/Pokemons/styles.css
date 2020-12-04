@@ -37,7 +37,27 @@
 @media screen and (max-width: 500px) {
   .pokemon_items {
     justify-content: center;
+    grid-template-columns: 1fr 1fr;
+  }
+  .pokemon_items li {
+    width: 14rem;
+  }
+  input[type=text]{
+    width: 100%!important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pokemon_items {
+    justify-content: center;
     grid-template-columns: 1fr;
+  }
+  .pokemon_items li {
+    width: 15rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .pokemon_items li{
+    width: 100%;
   }
 }
 

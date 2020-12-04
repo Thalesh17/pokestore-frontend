@@ -6,8 +6,6 @@ import { numberFormatBRL } from '../../utils/utils';
 import ModalPokemon from '../../pages/ModalPokemon';
 import api from '../../services/api';
 import "./styles.css";
-import {FaTasks,FaPlusCircle} from 'react-icons/fa';
-
 const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
     const Fade = require('react-reveal/Fade');
     const Zoom = require('react-reveal/Zoom');
@@ -62,13 +60,12 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
                             </div>
                             <div className={`content-button`}>
                                 <div onClick={() => openModal(pokemonData)} className={`pokemon_cart ${config.color.secondary}`}>
-                                    <FaTasks color={'#fff'} />
                                     <h5 className="text-black">
                                     Detalhes
                                     </h5>
                                 </div>
                                 <div className="pokemon_cart btn-add" data-testid='add-pokemon' onClick={() => handleAddPokemon(pokemonData)}>
-                                <FaPlusCircle color={'#fff'} /><h5 className={`text-black`}>Adicionar</h5>
+                                <h5 className={`text-black`}>Adicionar</h5>
                                 </div>
                             </div>
                         </div>

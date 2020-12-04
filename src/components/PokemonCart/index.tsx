@@ -58,16 +58,20 @@ const PokemonCart: React.FC<PokemonProps> = ({ pokemon }) => {
                                     {pokemonData.price && numberFormatBRL(parseFloat(pokemonData.price))}
                                 </h5>
                             </div>
-                            <div className={`content-button`}>
-                                <div onClick={() => openModal(pokemonData)} className={`pokemon_cart ${config.color.secondary}`}>
-                                    <h5 className="text-black">
-                                    Detalhes
-                                    </h5>
-                                </div>
-                                <div className="pokemon_cart btn-add" data-testid='add-pokemon' onClick={() => handleAddPokemon(pokemonData)}>
-                                <h5 className={`text-black`}>Adicionar</h5>
-                                </div>
-                            </div>
+                            {pokemonData.price && (
+                                <Zoom>
+                                    <div className={`content-button`}>
+                                        <div onClick={() => openModal(pokemonData)} className={`pokemon_cart ${config.color.secondary}`}>
+                                            <h5 className="text-black">
+                                            Detalhes
+                                            </h5>
+                                        </div>
+                                        <div className="pokemon_cart btn-add" data-testid='add-pokemon' onClick={() => handleAddPokemon(pokemonData)}>
+                                        <h5 className={`text-black`}>Adicionar</h5>
+                                        </div>
+                                    </div>
+                                </Zoom>
+                            )}
                         </div>
                     </div>
                 </Fade>

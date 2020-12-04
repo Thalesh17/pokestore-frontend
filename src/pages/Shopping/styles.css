@@ -38,7 +38,12 @@
     flex-wrap: wrap;
     gap: 1rem;
 }
-
+.strong-id {
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    color: var(--text-black);
+}
 .card {
     display: flex;
     width: 16rem;

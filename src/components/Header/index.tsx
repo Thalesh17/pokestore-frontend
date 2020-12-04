@@ -45,7 +45,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={`${getConfig().color.primary} Header`}>
-      <Link to='/main' className="nav-link link_navbar">
+      <Link to='/' className="nav-link link_navbar">
         <img
           width={100}
           height={50}
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
         unmountOnExit
       >
         <nav className={`nav`}>
-          <Link to='/' className="nav-link link_navbar">Home</Link>
+          <Link to='/main' className="nav-link link_navbar">Home</Link>
           <Link to='/shoppings' className="nav-link link_navbar">Pedidos</Link>
           <div className="justify_select">
             <div className="text_select">

@@ -76,11 +76,12 @@
 .pokemon_cart {
     border-radius: 8px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: .80rem;
     cursor: pointer;
     opacity: 1;
+    width: 100%;
     transition: 0.3s;
 }
 .pokemon_cart:hover {

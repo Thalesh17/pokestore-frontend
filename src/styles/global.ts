@@ -8,8 +8,8 @@ export default createGlobalStyle`
   --text-black: #110B11;
   --type-water-secondary: #184280; 
   --type-fire-secondary:  #c51a1d;
-  --type-ground: #8e3d0dd4; 
-  --type-ground-secondary:  #773007;
+  --type-ground: #865c16; 
+  --type-ground-secondary:  #923f0f;
 }
 *{
     margin: 0;

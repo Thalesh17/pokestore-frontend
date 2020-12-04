@@ -8,12 +8,12 @@ const ShoppingCartContext = createContext<ShoppingCart>({} as ShoppingCart);
 const ShoppingCartProvider: React.FC = ({ children }) => {
   
   const [cartItems, setCartItems] = useState<CartItem[]>(
-    localStorage.getItem("@PokeStore:cart") !== null ? JSON.parse(localStorage.getItem("@PokeStore:cart")!) : []);
+    localStorage.getItem("@Pokeshop:cart") !== null ? JSON.parse(localStorage.getItem("@Pokeshop:cart")!) : []);
   const [shoppings, setShoppings] = useState<Shopping[]>([]);
 
   useEffect(() => {
-    if(localStorage.getItem("@PokeStore:shopping")) {
-      setShoppings(JSON.parse(localStorage.getItem("@PokeStore:shopping")!));
+    if(localStorage.getItem("@Pokeshop:shopping")) {
+      setShoppings(JSON.parse(localStorage.getItem("@Pokeshop:shopping")!));
     }
   }, []);
 
@@ -32,7 +32,7 @@ const ShoppingCartProvider: React.FC = ({ children }) => {
     }
 
     setCartItems(carts);
-    localStorage.setItem("@PokeStore:cart", JSON.stringify(carts));
+    localStorage.setItem("@Pokeshop:cart", JSON.stringify(carts));
   }
 
   const handleRemove = (id: string): void => {
@@ -50,12 +50,12 @@ const ShoppingCartProvider: React.FC = ({ children }) => {
     });
 
     setCartItems(carts);
-    localStorage.setItem("@PokeStore:cart", JSON.stringify(carts));
+    localStorage.setItem("@Pokeshop:cart", JSON.stringify(carts));
   }
 
   const handleRemoveAllItems = (): void => {
     setCartItems([]);
-    localStorage.removeItem("@PokeStore:cart");
+    localStorage.removeItem("@Pokeshop:cart");
   }
 
   const handleSaveShopping = (): void => {
@@ -65,7 +65,7 @@ const ShoppingCartProvider: React.FC = ({ children }) => {
 
         shoppingsData.push(shopping);
         setShoppings(shoppingsData);
-        localStorage.setItem("@PokeStore:shopping", JSON.stringify(shoppingsData));
+        localStorage.setItem("@Pokeshop:shopping", JSON.stringify(shoppingsData));
       
         swal({
           icon: "success",

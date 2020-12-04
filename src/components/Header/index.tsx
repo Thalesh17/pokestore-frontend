@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
-    let configStorage = localStorage.getItem('@PokeStore:config');
+    let configStorage = localStorage.getItem('@Pokeshop:config');
     setSelected(configStorage ? configStorage : JSON.stringify(config));
   }, [])
 

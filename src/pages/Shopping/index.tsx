@@ -31,20 +31,27 @@ const Shopping: React.FC = () => {
             <Header />
             <Container>
                 <Content>
-                    <div className="content-shop">
-                        {shoppings.map(shop => (
-                            <div key={shop.id} className="card">
-                                <div className={`content-number ${getConfig().color.secondary}`}>                                
-                                    <h1 className="strong-id">Pedido Nº #{shop.id}  <FaCheck color={'#0ef60e'} /></h1>
-                                   
+                    {shoppings.length < 1 && (
+                        <div className={`content-number ${getConfig().color.primary}`}>                                
+                            <h1 className="strong-id">Nenhum pedido cadastrado</h1>
+                        </div>
+                    )}
+                    {shoppings && shoppings.length > 0 && (
+                        <div className="content-shop">
+                            {shoppings.map(shop => (
+                                <div key={shop.id} className="card">
+                                    <div className={`content-number ${getConfig().color.secondary}`}>                                
+                                        <h1 className="strong-id">Pedido Nº #{shop.id}  <FaCheck color={'#0ef60e'} /></h1>
+                                    
+                                    </div>
+                                    <div className="flex-items">{renderItems(shop)}</div>
+                                    <div className={`date-footer ${getConfig().color.secondary}`}>
+                                        <div>Pedido realizado em: {shop.createDate}</div>
+                                    </div>
                                 </div>
-                                <div className="flex-items">{renderItems(shop)}</div>
-                                <div className={`date-footer ${getConfig().color.secondary}`}>
-                                    <div>Pedido realizado em: {shop.createDate}</div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </Content>
             </Container>
         </>

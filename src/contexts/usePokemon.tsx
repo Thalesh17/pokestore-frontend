@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState, useContext } from 'react';
 import { Config, ContextPokemon, PokemonUrl } from '../interfaces/models';
 import api from '../services/api';
+import { configTypeWater } from '../utils/utils';
 import { useCart } from './shoppingCart';
 
 const PokemonContext = createContext<ContextPokemon>({} as ContextPokemon);
@@ -10,13 +11,20 @@ const PokemonProvider: React.FC = ({ children }) => {
 
   const [pokemons, setPokemons] = useState<PokemonUrl[] | []>([]);
   const [refreshData, setRefreshData] = useState<boolean>(false);
-  const [config, setConfig] = useState<Config>(localStorage.getItem('@PokeStore:config') ?
-    JSON.parse(localStorage.getItem('@PokeStore:config') || '{}') : {
+  const [config, setConfig] = useState<Config>(localStorage.getItem('@Pokeshop:config') ?
+    JSON.parse(localStorage.getItem('@Pokeshop:config') || '{}') : {
       color: 'type-water',
       type: '11',
-      name: 'Water',
+      name: 'Água',
       value: 'water'
     });
+
+    useEffect(() => {
+      if(!localStorage.getItem('@Pokeshop:config')) {
+          setConfig(configTypeWater());
+          localStorage.setItem("@Pokeshop:config", JSON.stringify(configTypeWater()));
+      }
+    }, [])
 
   useEffect(() => {
     const getPokemonsByType = async () => {
@@ -34,7 +42,7 @@ const PokemonProvider: React.FC = ({ children }) => {
   
   const handleSaveConfig = async (values: Config): Promise<void> => {
     setConfig(values);
-    localStorage.setItem('@PokeStore:config', JSON.stringify(values));
+    localStorage.setItem('@Pokeshop:config', JSON.stringify(values));
     setRefreshData(true);
     setPokemons([]);
     handleRemoveAllItems();

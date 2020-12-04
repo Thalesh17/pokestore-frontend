@@ -7,6 +7,8 @@
 ## Sobre a aplicação:
 >PokeShop é uma loja de pokemons onde o usuario poderá visualizar preços e adquirir pokemons de acordo com o tipo do pokemon. A Pokeshop possui 3 tipos de lojas: Água, Fogo e Dragão. Ao escolher uma das lojas, o design e as cores da aplicação mudam, assim como os pokemons. O Usuario poderá desfrutar de um design responsivo, disponivel para qualquer tela e acompanhar o pedido atraves do carrinho, se por acaso o usuário fechar a aba e entrar novamente, poderá ver seu carrinho de compras salvos. Após realizar a compra, é possivel ver tambem os pedido na Aba Pedidos da aplicação.
 
+![](src/assets/home.jpg)
+
 ## Tecnologias utilizadas
 * #### <b>HTML5
 * #### <b>CSS3

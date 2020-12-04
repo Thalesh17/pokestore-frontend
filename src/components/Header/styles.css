@@ -35,10 +35,10 @@
 }
 .pokeball {
   display: none;
-  grid-area: burger;
+  grid-area: pokeball;
+  width: 4rem;
   align-self: end;
   justify-self: end;
-  font-size: 40px;
   border: none;
   background: none;
   outline: none;
@@ -63,7 +63,7 @@
 
 @media (max-width: 700px) {
   .Header {
-    grid-template-areas: "logo burger" "nav nav";
+    grid-template-areas: "logo pokeball" "nav nav";
   }
   .nav {
     grid-template-rows: repeat(4, auto);

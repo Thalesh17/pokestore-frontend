@@ -47,7 +47,7 @@ const Header: React.FC = () => {
     <header className={`${getConfig().color.primary} Header`}>
       <Link to='/main' className="nav-link link_navbar">
         <img
-          width={150}
+          width={100}
           height={50}
           className="d-inline-block align-top"
           alt="Pokemon logo"

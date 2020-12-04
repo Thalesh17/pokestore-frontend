@@ -73,12 +73,14 @@ describe('Component Pokemons List', () => {
             </ShoppingCartContext.Provider>
         );
 
-        const button = getByTestId('add-pokemon');
+        const button = getByTestId('btn-add-pokemon');
 
         fireEvent.click(button);
 
         await waitFor(() => {
-            expect(getByTestId("li-cart-item-12")).toBeInTheDocument();
+            act(() => {
+                expect(getByTestId("li-cart-item-12")).toBeInTheDocument();
+            })
         });
     });
 
@@ -91,7 +93,9 @@ describe('Component Pokemons List', () => {
             );
 
             await waitFor(() => {
-                expect(getByTestId('Squirtle')).toBeInTheDocument();
+                act(() => {
+                    expect(getByTestId('Squirtle')).toBeInTheDocument();
+                })
             });
     });
 })

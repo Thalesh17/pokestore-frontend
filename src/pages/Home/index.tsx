@@ -1,14 +1,14 @@
 import React from 'react';
 import { usePokemons } from '../../contexts/usePokemon';
 import { Config, ChildComponentProps } from '../../interfaces/models';
-import { configTypeFire, configTypeWater, configTypeDragon } from '../../utils/utils';
+import { configTypeFire, configTypeWater, configTypeGround } from '../../utils/utils';
 import "./styles.css";
 
 const Home:  React.FC<ChildComponentProps> = ({ history })  => {
     const { handleSaveConfig } = usePokemons();
     let fire: Config = configTypeFire(),
         water: Config = configTypeWater(),
-        dragon: Config = configTypeDragon();
+        ground: Config = configTypeGround();
 
     const redirectByType = (value: Config): void => {
         handleSaveConfig(value);
@@ -24,11 +24,11 @@ const Home:  React.FC<ChildComponentProps> = ({ history })  => {
                     <h4>Escolha qual tipo de Pokemon você quer espiar!</h4>
                 </div>
                 <div className="home">
-                    <div onClick={() => redirectByType(dragon)} className="home-content home-content-dragon">
-                        <h1>DRAGÃO</h1>
-                    </div>
                     <div onClick={() => redirectByType(fire)} className="home-content home-content-red">
                         <h1>FOGO</h1>
+                    </div>
+                    <div onClick={() => redirectByType(ground)} className="home-content home-content-ground">
+                        <h1>TERRA</h1>
                     </div>
                     <div onClick={() => redirectByType(water)} className="home-content home-content-blue">
                         <h1>ÁGUA</h1>

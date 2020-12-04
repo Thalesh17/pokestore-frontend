@@ -39,8 +39,8 @@
 .home-content-red:hover {
     transform: scale(1);
 }
-.home-content-dragon {
-    background: #6A2918;
+.home-content-ground {
+    background: hsl(22deg 81% 31% / 90%);
     height: 60%;
     cursor: pointer;
     transform: scale(0.9);
@@ -64,7 +64,7 @@
     font-weight: 700;
     color: #fff;
 }
-.home-content-dragon h1 {
+.home-content-ground h1 {
     font-weight: 700;
     color: #fff;
 }

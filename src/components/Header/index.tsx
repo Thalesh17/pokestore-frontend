@@ -60,7 +60,7 @@ const Header: React.FC = () => {
         classNames="NavAnimation"
         unmountOnExit
       >
-        <nav className={`nav ${getConfig().color.primary}`}>
+        <nav className={`nav`}>
           <Link to='/' className="nav-link link_navbar">Home</Link>
           <Link to='/shoppings' className="nav-link link_navbar">Pedidos</Link>
           <div className="justify_select">

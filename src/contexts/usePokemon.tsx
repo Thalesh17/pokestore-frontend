@@ -71,12 +71,12 @@ const PokemonProvider: React.FC = ({ children }) => {
       },
       {
         color: {
-          primary: 'type-dragon',
-          secondary: 'type-dragon-secondary'
+          primary: 'type-ground',
+          secondary: 'type-ground-secondary'
         },
-        name: 'Dragão',
-        value: 'dragon',
-        type: '16'
+        name: 'Terra',
+        value: 'ground',
+        type: '5'
       },
     ];
   }

@@ -8,10 +8,9 @@ export default createGlobalStyle`
   --text-black: #110B11;
   --type-water-secondary: #184280; 
   --type-fire-secondary:  #c51a1d;
-  --type-dragon: #6A2918; 
-  --type-dragon-secondary:  #6A2918;
+  --type-ground: #8e3d0dd4; 
+  --type-ground-secondary:  #773007;
 }
-
 *{
     margin: 0;
     padding: 0;
@@ -36,11 +35,11 @@ body {
 .type-fire-secondary {
   background-color: var(--type-fire-secondary);
 }
-.type-dragon {
-  background-color: var(--type-dragon);
+.type-ground {
+  background-color: var(--type-ground);
 }
-.type-dragon-secondary {
-  background-color: var(--type-dragon-secondary);
+.type-ground-secondary {
+  background-color: var(--type-ground-secondary);
 }
 .text-black {
   color: var(--text-black);

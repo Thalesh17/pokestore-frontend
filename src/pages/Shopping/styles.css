@@ -20,8 +20,8 @@
     align-items: center;
 }
 .pokemon-name {
-    font-size: 14px;
-    font-family: monospace;
+    font-size: 11px;
+    font-family: 'Roboto';
 }
 .content-number {
     display: flex;

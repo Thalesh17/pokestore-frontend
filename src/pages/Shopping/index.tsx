@@ -22,7 +22,7 @@ const Shopping: React.FC = () => {
                     alt={item.name}
                 />
                 <div className="pokemon-name">{item.name}</div>
-                <div className="pokemon-name">X{item.count}</div>
+                <div className="pokemon-name">x{item.count}</div>
             </div>  
         ));
     }

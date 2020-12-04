@@ -99,4 +99,17 @@ input[type=submit] {
     margin-top: 0;
   }
 }
+/*Scroll bar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #a9a9a9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 `;

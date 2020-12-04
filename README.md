@@ -13,6 +13,7 @@
 * #### <b>HTML5
 * #### <b>CSS3
 * #### <b>ReactJS
+* #### <b>Typescript
 * #### <b>React Hooks (ContextApi, useState, useEffect)
 * #### <b>React-Testing-Library
 
@@ -22,6 +23,8 @@
 * #### axios
 * #### moment
 * #### react-responsive-modal
+* #### react-icons
+* #### sweetalert
 
 ## Configuração
 * #### Clonar o projeto
@@ -49,4 +52,3 @@
  
 ## Passos para reproduzir
     > Ao iniciar a aplicação clicar em algum dos tipos (Fogo, Água, Dragão). Pesquisar por nome, clicar em Detalhar, clicar em Adicionar, clicar novamente para adicionar, clicar em Finalizar. Visualizar a aba de Pedidos. Voltar a Home e fazer com outros tipos.
-
